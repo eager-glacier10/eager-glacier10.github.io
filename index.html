@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>八度电影院-独立艺术影院排片与观影指南</title>
+<meta name="description" content="八度电影院是聚焦老片修复、独立电影与作者影展的城市影院，提供本周排片表、影厅座位对比、观众口碑与购票前须知。">
+<meta name="keywords" content="八度电影院">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1a2e'/%3E%3Cpath d='M18 20h28v6H18zm0 18h28v6H18z' fill='%23e8b23a'/%3E%3Ccircle cx='24' cy='32' r='5' fill='%23f2f0e6'/%3E%3Ccircle cx='40' cy='32' r='5' fill='%23f2f0e6'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "八度电影院",
+  "inLanguage": "zh-CN",
+  "about": "独立艺术影院、老片修复放映、影展排片与观影指南"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "八度电影院的老片修复场次和普通数字厅有什么区别",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "修复场统一在3号厅与5号厅放映，母版来自中国电影资料馆或版权方的4K扫描件，映前有3至5分钟版本说明。普通数字厅多为院线密钥文件，画幅与声轨以发行方当前版本为准，两者排片不混排。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "影厅座位怎么选，二排中间真的好吗",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1号厅银幕宽11.2米，最佳观影视角在7至9排正中；2号厅只有96座、坡度较缓，二排中间会让画面边缘超出视野。选座页标注了每排视距，按片长与画幅挑更稳妥。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "影展联票可以跨日使用吗",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "11月影展联票分单日票与全程票，单日票限当日四个场次内使用，全程票覆盖11月13日至22日的27场放映，不含特别加映的午夜场。退改按开场前2小时规则执行。"
+      }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#1b1a2e;
+  --ink-2:#333250;
+  --paper:#f5f2e9;
+  --paper-2:#ece7da;
+  --card:#fffdf7;
+  --line:#d8d2c2;
+  --accent:#c0392b;
+  --accent-soft:#e8b23a;
+  --teal:#2c6e63;
+  --muted:#6b675c;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow:0 6px 24px rgba(27,26,46,.08);
+  --gap:clamp(14px,2.2vw,26px);
+  --font-h:"Noto Serif SC","Songti SC","SimSun",serif;
+  --font-b:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink-2);
+  font-family:var(--font-b);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;display:block}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:var(--font-h);color:var(--ink);line-height:1.3;margin:0 0 .5em}
+h2{font-size:clamp(1.3rem,2.4vw,1.7rem)}
+h3{font-size:1.08rem}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 .9em;padding-left:1.25em}
+:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(14px,3vw,32px)}
+
+/* 吸顶 */
+.sticky-group{position:sticky;top:0;z-index:60}
+.announce{
+  background:var(--ink);
+  color:#f2efe4;
+  font-size:.85rem;
+  letter-spacing:.02em;
+  border-bottom:1px solid #2f2d4a;
+}
+.announce .wrap{
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;
+  padding-top:7px;padding-bottom:7px;
+}
+.announce b{color:var(--accent-soft);font-weight:600}
+.announce .tag{
+  background:var(--accent);color:#fff;font-size:.72rem;
+  padding:1px 7px;border-radius:99px;letter-spacing:.05em;
+}
+.site-header{
+  background:rgba(245,242,233,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(27,26,46,.05);
+}
+.hd{display:flex;align-items:center;gap:clamp(10px,2vw,26px);padding-top:11px;padding-bottom:11px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand:hover{text-decoration:none}
+.logo-mark{width:40px;height:40px;flex:0 0 auto}
+.brand-name{font-family:var(--font-h);font-weight:700;font-size:1.16rem;color:var(--ink);letter-spacing:.03em}
+.main-nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:2px 4px;align-items:center}
+.main-nav a{
+  color:var(--ink-2);font-size:.9rem;padding:6px 9px;border-radius:99px;
+  text-decoration:none;white-space:nowrap;
+}
+.main-nav a:hover{background:var(--paper-2);text-decoration:none;color:var(--ink)}
+.hd-tools{display:flex;align-items:center;gap:8px}
+.search{position:relative;display:flex;align-items:center}
+.search input{
+  width:clamp(120px,16vw,190px);font:inherit;font-size:.86rem;
+  padding:7px 30px 7px 12px;border:1px solid var(--line);border-radius:99px;
+  background:var(--card);color:var(--ink);
+}
+.search input:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(44,110,99,.16)}
+.search button{
+  position:absolute;right:3px;top:50%;transform:translateY(-50%);
+  border:0;background:transparent;cursor:pointer;padding:4px 7px;color:var(--muted);
+  border-radius:99px;line-height:1;
+}
+.search button:hover{color:var(--accent)}
+.btn-ghost{
+  font:inherit;font-size:.86rem;padding:7px 14px;border-radius:99px;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);
+  cursor:pointer;white-space:nowrap;text-decoration:none;
+}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);text-decoration:none}
+.search-feedback{
+  display:none;font-size:.82rem;color:var(--accent);width:100%;
+  padding:2px 4px;order:99;
+}
+.search-feedback.show{display:block}
+mark{background:var(--accent-soft);color:var(--ink);padding:0 1px;border-radius:2px}
+
+/* 锚点偏移 */
+section[id],div[id].anchor{scroll-margin-top:112px}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(1100px 380px at 12% -10%, rgba(232,178,58,.20), transparent 62%),
+    radial-gradient(900px 420px at 92% 8%, rgba(44,110,99,.16), transparent 60%),
+    var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:var(--gap);align-items:center;
+  padding-top:clamp(26px,4.5vw,54px);padding-bottom:clamp(26px,4.5vw,54px);
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:.8rem;
+  color:var(--accent);letter-spacing:.14em;border:1px solid rgba(192,57,43,.35);
+  padding:3px 11px;border-radius:99px;background:rgba(192,57,43,.05);
+  margin-bottom:16px;
+}
+.hero h1{
+  font-size:clamp(2rem,5.4vw,3.3rem);
+  letter-spacing:.02em;margin-bottom:.35em;
+}
+.hero h1 .dot{color:var(--accent)}
+.hero-lead{font-size:clamp(.95rem,1.5vw,1.06rem);max-width:34em;color:var(--ink-2)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn-primary{
+  display:inline-block;background:var(--accent);color:#fff;
+  padding:10px 22px;border-radius:99px;font-size:.94rem;font-weight:600;
+  text-decoration:none;border:1px solid var(--accent);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(192,57,43,.26);text-decoration:none;color:#fff}
+.btn-line{
+  display:inline-block;border:1px solid var(--ink-2);color:var(--ink-2);
+  padding:10px 20px;border-radius:99px;font-size:.94rem;text-decoration:none;
+  transition:transform .18s ease;
+}
+.btn-line:hover{transform:translateY(-2px);background:var(--card);text-decoration:none;color:var(--ink)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:18px 28px;margin-top:26px;padding-top:18px;border-top:1px dashed var(--line)}
+.hero-stats div{min-width:88px}
+.hero-stats b{display:block;font-family:var(--font-h);font-size:1.42rem;color:var(--ink);line-height:1.1}
+.hero-stats span{font-size:.78rem;color:var(--muted);letter-spacing:.03em}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 10px 26px rgba(27,26,46,.16))}
+
+/* 布局 */
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 288px;
+  gap:clamp(20px,3vw,40px);
+  padding-top:clamp(24px,3.4vw,42px);padding-bottom:38px;
+  align-items:start;
+}
+.main-col{min-width:0}
+.side-col{min-width:0;display:grid;gap:18px;position:sticky;top:112px}
+
+/* 板块通用 */
+.block{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(16px,2.4vw,26px);margin-bottom:var(--gap);box-shadow:var(--shadow);
+}
+.block-head{margin-bottom:14px}
+.block-head .eyebrow{
+  font-size:.74rem;letter-spacing:.18em;color:var(--accent);
+  text-transform:uppercase;display:block;margin-bottom:4px;
+}
+.block-head p{font-size:.9rem;color:var(--muted);margin:0}
+.section-note{font-size:.84rem;color:var(--muted);margin-top:10px}
+
+/* 网格卡片 */
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--paper);padding:0;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(27,26,46,.10)}
+.card img{width:100%;height:132px;object-fit:cover;background:var(--paper-2)}
+.card-body{padding:12px 14px 14px}
+.card h3{font-size:1rem;margin-bottom:5px}
+.card .meta{font-size:.76rem;color:var(--muted);letter-spacing:.02em;margin-bottom:6px}
+.card p{font-size:.87rem;margin:0;color:var(--ink-2)}
+.chip{
+  display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:99px;
+  background:var(--paper-2);color:var(--ink-2);border:1px solid var(--line);
+  margin:0 4px 4px 0;text-decoration:none;
+}
+.chip:hover{background:var(--accent-soft);color:var(--ink);text-decoration:none}
+.chip.teal{border-color:rgba(44,110,99,.4);color:var(--teal)}
+.chip.red{border-color:rgba(192,57,43,.4);color:var(--accent)}
+
+/* 紧凑列表 */
+.list-tight{list-style:none;padding:0;margin:0}
+.list-tight li{
+  display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;
+  padding:10px 0;border-bottom:1px dashed var(--line);font-size:.9rem;
+  align-items:baseline;
+}
+.list-tight li:last-child{border-bottom:0}
+.list-tight .d{color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.list-tight .t{color:var(--ink);font-weight:600}
+.list-tight .t a{color:var(--ink);text-decoration:none}
+.list-tight .t a:hover{color:var(--accent);text-decoration:underline}
+.list-tight .r{font-size:.76rem;color:var(--muted);text-align:right}
+
+/* 分类入口 */
+.channel-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.channel{
+  display:block;padding:12px 14px;border-radius:var(--radius-sm);
+  background:linear-gradient(160deg,var(--paper-2),var(--paper));
+  border:1px solid var(--line);text-decoration:none;color:var(--ink);
+  transition:transform .18s ease,border-color .18s ease;
+}
+.channel:hover{transform:translateY(-2px);border-color:var(--accent);text-decoration:none}
+.channel b{display:block;font-family:var(--font-h);font-size:.98rem;margin-bottom:2px}
+.channel span{font-size:.76rem;color:var(--muted)}
+
+/* 深度解析 */
+.feature{
+  background:linear-gradient(175deg,#fffdf7 0%,#f7f2e4 100%);
+  border:1px solid var(--line);border-left:5px solid var(--accent);
+  border-radius:var(--radius);padding:clamp(18px,2.8vw,30px);margin-bottom:var(--gap);
+  box-shadow:var(--shadow);
+}
+.feature h2{margin-bottom:6px}
+.feature .standfirst{font-size:.92rem;color:var(--muted);margin-bottom:16px}
+.feature h3{
+  margin-top:22px;padding-top:14px;border-top:1px solid var(--line);
+}
+.feature h3:first-of-type{border-top:0;padding-top:0}
+.feature ul{font-size:.93rem}
+.pull{
+  border-left:3px solid var(--accent-soft);background:rgba(232,178,58,.10);
+  padding:12px 16px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-family:var(--font-h);font-size:.98rem;color:var(--ink);margin:16px 0;
+}
+.verify{
+  border:1px dashed var(--teal);border-radius:var(--radius-sm);
+  padding:12px 14px;background:rgba(44,110,99,.05);margin:14px 0 0;
+  font-size:.88rem;
+}
+.verify b{color:var(--teal)}
+.verify ol{margin:6px 0 0;padding-left:1.3em}
+
+/* 对照面板 */
+.compare{display:grid;gap:0;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.compare > div{padding:14px 16px;font-size:.88rem}
+.compare > div:first-child{background:var(--paper);border-right:1px solid var(--line)}
+.compare > div:last-child{background:#fff}
+.compare h4{font-size:.92rem;margin:0 0 8px;color:var(--accent)}
+.compare > div:last-child h4{color:var(--teal)}
+.compare ul{padding-left:1.15em;margin:0}
+
+/* 步骤 */
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{
+  position:relative;padding:0 0 16px 44px;counter-increment:s;
+  font-size:.9rem;
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:0;
+  width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);
+  font-family:var(--font-h);font-size:.86rem;display:flex;align-items:center;justify-content:center;
+}
+.steps li::after{
+  content:"";position:absolute;left:13.5px;top:30px;bottom:2px;width:1px;background:var(--line);
+}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.steps b{font-family:var(--font-h);color:var(--ink)}
+
+/* 问答 */
+details.faq{
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--paper);padding:0;margin-bottom:8px;overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;padding:12px 40px 12px 14px;font-weight:600;font-size:.92rem;
+  color:var(--ink);position:relative;list-style:none;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"+";position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:1.2rem;color:var(--accent);font-family:var(--font-h);line-height:1;
+}
+details.faq[open] summary::after{content:"–"}
+details.faq .ans{padding:0 14px 13px;font-size:.87rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:10px}
+
+/* 评论 */
+.reviews{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.review{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:13px 15px;font-size:.87rem;
+}
+.review .who{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.avatar{
+  width:28px;height:28px;border-radius:50%;background:var(--paper-2);
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  font-size:.76rem;color:var(--ink);font-family:var(--font-h);
+}
+.review .nm{font-weight:600;color:var(--ink);font-size:.85rem}
+.review .when{font-size:.72rem;color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+.stars{color:var(--accent-soft);letter-spacing:.1em;font-size:.8rem}
+.review p{margin:0;font-size:.86rem}
+
+/* 相关资讯 */
+.news{list-style:none;padding:0;margin:0}
+.news li{padding:11px 0;border-bottom:1px dashed var(--line);font-size:.89rem}
+.news li:last-child{border-bottom:0}
+.news .time{font-size:.75rem;color:var(--accent);letter-spacing:.06em;margin-right:8px;font-variant-numeric:tabular-nums}
+.news .src{font-size:.74rem;color:var(--muted);margin-left:6px}
+
+/* 侧栏 */
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;box-shadow:var(--shadow);
+}
+.side-card h2{font-size:1rem;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.side-nav{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.side-nav a{
+  display:block;font-size:.86rem;padding:6px 10px;border-radius:var(--radius-sm);
+  color:var(--ink-2);text-decoration:none;border-left:2px solid transparent;
+}
+.side-nav a:hover{background:var(--paper-2);text-decoration:none}
+.side-nav a.active{border-left-color:var(--accent);background:rgba(192,57,43,.07);color:var(--accent);font-weight:600}
+.rank{list-style:none;padding:0;margin:0;counter-reset:r}
+.rank li{
+  display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);
+  font-size:.85rem;counter-increment:r;align-items:baseline;
+}
+.rank li:last-child{border-bottom:0}
+.rank li::before{
+  content:counter(r,decimal-leading-zero);font-family:var(--font-h);
+  color:var(--accent);font-size:.82rem;flex:0 0 auto;
+}
+.rank b{color:var(--ink);font-weight:600}
+.rank small{color:var(--muted);display:block;font-size:.74rem}
+.side-card .timeline{list-style:none;padding:0;margin:0}
+.timeline li{position:relative;padding:0 0 12px 16px;font-size:.83rem;border-left:1px solid var(--line)}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{
+  content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;
+  background:var(--accent);
+}
+.timeline .day{font-size:.74rem;color:var(--muted);display:block;font-variant-numeric:tabular-nums}
+
+/* 页脚 */
+footer{
+  background:var(--ink);color:#cfcabb;margin-top:14px;
+  padding:clamp(26px,4vw,44px) 0 18px;font-size:.86rem;
+}
+footer h2,footer h3{color:#f2efe4}
+.foot-grid{display:grid;gap:26px;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr))}
+.foot-brand{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.foot-brand .brand-name{color:#f2efe4}
+.foot-brand p{font-size:.84rem;color:#a8a396;margin:0}
+.foot-col h3{font-size:.9rem;margin-bottom:8px;letter-spacing:.04em}
+.foot-col ul{list-style:none;padding:0;margin:0;display:grid;gap:5px}
+.foot-col a{color:#c3beb0;font-size:.84rem;text-decoration:none}
+.foot-col a:hover{color:var(--accent-soft);text-decoration:underline}
+.foot-note{
+  margin-top:24px;padding-top:14px;border-top:1px solid #35334f;
+  display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;
+  font-size:.76rem;color:#918d80;
+}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:18px;bottom:18px;z-index:80;
+  width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--ink);color:var(--paper);font-size:1.1rem;
+  box-shadow:0 6px 18px rgba(27,26,46,.3);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s;
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+/* 响应式 */
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr}
+  .side-col{position:static;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));order:2}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:-1;max-width:360px;margin:0 auto}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .hd{gap:8px}
+  .main-nav{
+    order:5;flex-basis:100%;margin-left:0;
+    display:flex;flex-wrap:nowrap;overflow-x:auto;gap:4px;
+    padding-bottom:2px;-webkit-overflow-scrolling:touch;
+  }
+  .main-nav a{background:var(--card);border:1px solid var(--line)}
+  .hd-tools{margin-left:auto}
+  .search input{width:110px}
+  .btn-ghost{padding:6px 11px;font-size:.82rem}
+  .compare{grid-template-columns:1fr}
+  .compare > div:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .foot-grid{grid-template-columns:1fr}
+  section[id],div[id].anchor{scroll-margin-top:150px}
+  .to-top{bottom:14px;right:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .card:hover,.channel:hover,.btn-primary:hover,.btn-line:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-group">
+  <div class="announce" role="region" aria-label="影院公告">
+    <div class="wrap">
+      <span class="tag">公告</span>
+      <span><b>八度电影院</b> 11月影展加开11月20日22:40《小城之春》4K修复场，售票今日10:00开启</span>
+      <span>3号厅座椅更换完工，11月6日起恢复放映</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap hd">
+      <a class="brand" href="/#top" aria-label="八度电影院 首页">
+        <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1b1a2e"/>
+          <rect x="14" y="15" width="36" height="7" rx="2" fill="#e8b23a"/>
+          <rect x="14" y="42" width="36" height="7" rx="2" fill="#e8b23a"/>
+          <circle cx="24" cy="32" r="5.6" fill="#f5f2e9"/>
+          <circle cx="40" cy="32" r="5.6" fill="#f5f2e9"/>
+          <circle cx="24" cy="32" r="2.1" fill="#1b1a2e"/>
+          <circle cx="40" cy="32" r="2.1" fill="#1b1a2e"/>
+        </svg>
+        <span class="brand-name">八度电影院</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#schedule">本周排片</a>
+        <a href="/#restore">修复放映</a>
+        <a href="/#halls">影厅对照</a>
+        <a href="/#channels">片单分类</a>
+        <a href="/#feature">深度解析</a>
+        <a href="/#guide">购票须知</a>
+        <a href="/#faq">常见问题</a>
+      </nav>
+      <div class="hd-tools">
+        <div class="search">
+          <label for="q" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">站内搜索</label>
+          <input id="q" type="search" placeholder="搜片名 / 导演 / 影厅" autocomplete="off">
+          <button type="button" id="searchBtn" aria-label="搜索">🔍</button>
+        </div>
+        <button class="btn-ghost" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">菜单</button>
+      </div>
+      <p class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-kicker">四厅 · 独立片单 · 修复放映</span>
+      <h1>八度电影院<span class="dot">。</span></h1>
+      <p class="hero-lead">四个放映厅、一条不走院线密钥的片单。每天11:00到23:30，把老片修复场、青年导演首作和作者影展排进同一张表，映前留3分钟版本说明，散场后留一盏灯给讨论。</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="/#schedule">看11月8日排片</a>
+        <a class="btn-line" href="/#halls">比对四个影厅</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>4</b><span>放映厅 / 486座</span></div>
+        <div><b>27</b><span>11月影展场次</span></div>
+        <div><b>68%</b><span>修复片占比</span></div>
+        <div><b>11:00</b><span>首场开检时间</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 340" role="img">
+        <defs>
+          <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e8b23a" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#e8b23a" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="420" height="340" rx="18" fill="#1b1a2e"/>
+        <path d="M60 292 L210 58 L360 292 Z" fill="url(#beam)"/>
+        <rect x="58" y="292" width="304" height="14" rx="7" fill="#e8b23a"/>
+        <rect x="96" y="58" width="228" height="150" rx="6" fill="#f5f2e9" opacity=".92"/>
+        <rect x="106" y="68" width="208" height="130" rx="3" fill="#333250"/>
+        <circle cx="210" cy="133" r="30" fill="#f5f2e9" opacity=".18"/>
+        <path d="M196 118 L232 133 L196 148 Z" fill="#e8b23a"/>
+        <g fill="#f5f2e9" opacity=".7">
+          <circle cx="120" cy="274" r="8"/><circle cx="164" cy="274" r="8"/>
+          <circle cx="208" cy="274" r="8"/><circle cx="252" cy="274" r="8"/>
+          <circle cx="296" cy="274" r="8"/>
+        </g>
+        <circle cx="352" cy="58" r="16" fill="#c0392b"/>
+        <text x="352" y="63" font-size="12" text-anchor="middle" fill="#f5f2e9" font-family="serif">11</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="wrap layout">
+  <div class="main-col">
+
+    <!-- 1 领域概览 -->
+    <section class="block" id="overview" aria-labelledby="h-overview">
+      <div class="block-head">
+        <span class="eyebrow">Overview</span>
+        <h2 id="h-overview">这家影院在放什么：片单结构与放映层级</h2>
+        <p>四个厅按母版来源分工，同一周内会同时出现4K修复、胶片扫描转数字与当代首作三条线。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/baodu-repair/480/320" width="480" height="320" loading="lazy" alt="修复放映厅内景，深色座椅与银幕光带">
+          <div class="card-body">
+            <div class="meta">3号厅 · 修复放映厅</div>
+            <h3>4K修复与胶片扫描场</h3>
+            <p>母版多来自中国电影资料馆2024—2025年度扫描计划，映前3—5分钟字幕说明版本来源与删改位置。</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/baodu-firstfilm/480/320" width="480" height="320" loading="lazy" alt="青年导演首作放映后的观众讨论区">
+          <div class="card-body">
+            <div class="meta">5号厅 · 小厅首作</div>
+            <h3>青年导演首作长线</h3>
+            <p>每周三固定两场，片方多提供导演现场连线；11月档内共排9部首作，最短的一部只上映4天。</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/baodu-exhibition/480/320" width="480" height="320" loading="lazy" alt="影展海报墙与检票口">
+          <div class="card-body">
+            <div class="meta">1号厅 · 主展映厅</div>
+            <h3>作者影展与主题单元</h3>
+            <p>11月13日至22日的“城市与午后”单元共27场，含5场映后谈，票根可换当月主题折页。</p>
+          </div>
+        </article>
+      </div>
+      <p class="section-note">放映层级按母版、声轨与座位坡度划分，不按票价高低排序；同一部片在1号厅与3号厅的画幅呈现会有差异。</p>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="block" id="picks" aria-labelledby="h-picks">
+      <div class="block-head">
+        <span class="eyebrow">Curated</span>
+        <h2 id="h-picks">本周值得进场的六场放映</h2>
+        <p>按母版稀缺度、映后谈阵容与剩余座位综合挑，不含常规商业片场次。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/baodu-pick1/480/320" width="480" height="320" loading="lazy" alt="黑白修复影片的街景剧照">
+          <div class="card-body">
+            <div class="meta">11月8日 14:10 · 3号厅</div>
+            <h3>《小城之春》4K修复版</h3>
+            <p>103分钟，母版为2025年资料馆二次扫描，片头保留原版龙标。剩余47座。</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/baodu-pick2/480/320" width="480" height="320" loading="lazy" alt="纪录片放映现场的投影画面">
+          <div class="card-body">
+            <div class="meta">11月9日 19:30 · 1号厅</div>
+            <h3>《渡口纪事》导演连线场</h3>
+            <p>映后30分钟连线导演赵沐，主持人提问约20分钟，余下时间开放观众席麦克风。</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/baodu-pick3/480/320" width="480" height="320" loading="lazy" alt="小厅放映的当代剧情片画面">
+          <div class="card-body">
+            <div class="meta">11月10日 21:00 · 5号厅</div>
+            <h3>《午后三点半》首作长线场</h3>
+            <p>96分钟，导演剪辑版比院线版多两场夜戏。本场为本周最后一场，散场后有观众交流。</p>
+          </div>
+        </article>
+      </div>
+      <p class="section-note" style="margin-top:12px">另外三场为11月7日20:00的《雾中站台》胶片扫描场、11月11日16:40的《两个夏天》映后谈场、11月12日13:20的《旧城墙》加映场，均可在排片表内查看剩余座位。</p>
+    </section>
+
+    <!-- 3 深度解析（唯一主体阅读区） -->
+    <section class="feature" id="feature" aria-labelledby="h-feature">
+      <span class="eyebrow" style="font-size:.74rem;letter-spacing:.18em;color:#c0392b">Deep Read</span>
+      <h2 id="h-feature">修复放映值不值票价：从三个场次倒推判断方法</h2>
+      <p class="standfirst">同一部老片，资料馆扫描件、版权方母版、流媒体转制版在影院里是三种东西。差别可以拆开核对。</p>
+
+      <h3>判断一：母版年份比“4K”两个字更能决定画面</h3>
+      <p>11月8日14:10的《小城之春》标注“4K修复·2025扫描”，而11月15日同片场次标注“2019修复版”。两场票价都是68元，座位价差为零。2025年版来自资料馆对硝酸片基的保护性扫描，帧间抖动经过去闪处理；2019年版则是早期2K升频输出。以3号厅11.2米银幕计，前者在暗部层次上能保留至少两档灰阶，后者在雨夜段落会出现块状噪点。想验证，可以买连续两场的后一场，散场时刻意记下雨夜段落的路灯边缘。</p>
+
+      <h3>判断二：映后谈的信息密度取决于嘉宾是否参与后期</h3>
+      <div class="pull">“导演连线”与“影评人导赏”是两类活动，信息量不同：前者能回答剪辑取舍，后者只能提供观看框架。</div>
+      <p>11月9日19:30《渡口纪事》的连线对象是导演赵沐本人，映后30分钟；11月16日同片的导赏由影评人林柯主讲，主题是长江沿岸纪录片的镜头伦理。前者可追问具体删场，后者更适合第一次接触该导演的观众。11月影展的27场里，映后谈共9场，其中导演或主创到场6场，剩下3场为学者导赏。</p>
+
+      <h3>判断三：影厅坡度决定了同排座位的差异有多大</h3>
+      <div class="compare">
+        <div>
+          <h4>1号厅（268座）</h4>
+          <ul>
+            <li>银幕宽11.2米，坡度24°</li>
+            <li>7—9排正中视角完整</li>
+            <li>超宽画幅片在此厅不裁边</li>
+            <li>最后两排有轻微反光</li>
+          </ul>
+        </div>
+        <div>
+          <h4>5号厅（62座）</h4>
+          <ul>
+            <li>银幕宽4.6米，坡度14°</li>
+            <li>3—4排中间接近平视</li>
+            <li>二排中间视野边缘超出画面</li>
+            <li>空调出风口在左后角</li>
+          </ul>
+        </div>
+      </div>
+      <div class="verify">
+        <b>可核对项</b>
+        <ol>
+          <li>两场《小城之春》的母版说明是否出现在票面“版本”栏，而非只写在宣传语里。</li>
+          <li>映后谈主持人与嘉宾名单在开场前一天的排片页是否一致；临时换人影院会在检票口贴纸质告示。</li>
+          <li>5号厅座位图第2排第5—9座是否标注“视野受限”；这四席不参与早鸟优惠。</li>
+        </ol>
+      </div>
+
+      <h3>反过来的说法也站得住：修复场并非总该优先</h3>
+      <p>11月12日13:20的《旧城墙》是胶片扫描转数字，颗粒保留完整，但声轨只做到双声道修复。若进场的目的是听配乐层次，1号厅的当代数字版反而更稳。2025年影院收到的17部修复母版中，有4部声轨修复滞后于画面，影院会在排片页用“画面修复 / 声音部分修复”分开标注。看片前先确认自己想听什么，再决定买哪一场。</p>
+    </section>
+
+    <!-- 4 最新更新 -->
+    <section class="block" id="updates" aria-labelledby="h-updates">
+      <div class="block-head">
+        <span class="eyebrow">Updates</span>
+        <h2 id="h-updates">11月6日至8日排片与场务变动</h2>
+      </div>
+      <ul class="list-tight">
+        <li><span class="d">11-08 10:02</span><span class="t"><a href="/#schedule">加开《小城之春》4K修复场</a></span><span class="r">22:40 · 3号厅</span></li>
+        <li><span class="d">11-08 09:15</span><span class="t">3号厅第6—8排座椅更换完工，恢复售票</span><span class="r">场务通知</span></li>
+        <li><span class="d">11-07 18:40</span><span class="t">《渡口纪事》映后连线时间调整为30分钟</span><span class="r">1号厅</span></li>
+        <li><span class="d">11-07 12:20</span><span class="t">11月影展全程票售罄，单日票仍有余额</span><span class="r">影展单元</span></li>
+        <li><span class="d">11-06 16:05</span><span class="t">5号厅空调检修完成，左后角出风口改为低档</span><span class="r">5号厅</span></li>
+        <li><span class="d">11-06 09:30</span><span class="t">《午后三点半》导演剪辑版密钥到位，确认两场夜戏</span><span class="r">首作长线</span></li>
+      </ul>
+    </section>
+
+    <!-- 5 分类入口 -->
+    <section class="block" id="channels" aria-labelledby="h-channels">
+      <div class="block-head">
+        <span class="eyebrow">Channels</span>
+        <h2 id="h-channels">按片单类型找片</h2>
+        <p>分类依据是母版与来源，不是类型片标签。</p>
+      </div>
+      <div class="channel-grid">
+        <a class="channel" href="/#restore"><b>老片4K修复放映</b><span>资料馆与版权方双来源</span></a>
+        <a class="channel" href="/#feature"><b>作者影展单元</b><span>11月13—22日 27场</span></a>
+        <a class="channel" href="/#picks"><b>青年导演首作</b><span>每周三固定两场</span></a>
+        <a class="channel" href="/#halls"><b>胶片扫描转数字</b><span>颗粒与画幅差异标注</span></a>
+        <a class="channel" href="/#reviews"><b>映后谈与导演连线</b><span>11月共9场活动</span></a>
+        <a class="channel" href="/#guide"><b>午夜场与长片连映</b><span>22:00后开场</span></a>
+        <a class="channel" href="/#news"><b>城市与午后主题单元</b><span>城市空间题材集中放映</span></a>
+        <a class="channel" href="/#faq"><b>亲子与无障碍场</b><span>每月两场字幕增强版</span></a>
+        <a class="channel" href="/#rank"><b>本月口碑榜</b><span>按散场问卷计分</span></a>
+        <a class="channel" href="/#updates"><b>排片临时变动</b><span>场务与密钥通知</span></a>
+      </div>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="block" id="guide" aria-labelledby="h-guide">
+      <div class="block-head">
+        <span class="eyebrow">Guide</span>
+        <h2 id="h-guide">第一次来：从取票到散场的五个动作</h2>
+      </div>
+      <ol class="steps">
+        <li><b>提前25分钟到检票口。</b>修复场开场前有版本说明，迟到观众需等说明结束后入场，通常在第6分钟。</li>
+        <li><b>核对票面“版本”栏。</b>写“2019修复”与“2025扫描”的场次不同，同片同价，别走错厅。</li>
+        <li><b>5号厅选3—4排中间。</b>坡度只有14°，二排中间视野边缘会切掉画面两侧约12%。</li>
+        <li><b>影展联票在2号厅旁的服务台换实体票。</b>单日票限当日四个场次内使用，全程票不含午夜加映。</li>
+        <li><b>散场后留10分钟。</b>映后谈场次在1号厅前区开放提问，麦克风在过道中段，座位不固定。</li>
+      </ol>
+    </section>
+
+    <!-- 7 影厅对照（补充板块：对照面板） -->
+    <section class="block" id="halls" aria-labelledby="h-halls">
+      <div class="block-head">
+        <span class="eyebrow">Halls</span>
+        <h2 id="h-halls">四个影厅的座位、视距与适用片型</h2>
+      </div>
+      <div class="compare">
+        <div>
+          <h4>1号厅 / 3号厅</h4>
+          <ul>
+            <li>1号厅268座，坡度24°，适合超宽画幅</li>
+            <li>3号厅126座，坡度20°，修复场主场</li>
+            <li>两厅均配7.1声道，修复场以原声轨为准</li>
+            <li>最佳座位：7—9排正中</li>
+          </ul>
+        </div>
+        <div>
+          <h4>2号厅 / 5号厅</h4>
+          <ul>
+            <li>2号厅96座，坡度18°，联票换票点在此</li>
+            <li>5号厅62座，坡度14°，首作与讨论场</li>
+            <li>5号厅左后角有低档出风口</li>
+            <li>最佳座位：3—4排中间，避开第2排第5—9座</li>
+          </ul>
+        </div>
+      </div>
+      <p class="section-note">座位图在选座页按排标注视距，单位为米；修复场不设情侣座，相邻座位间距统一为58厘米。</p>
+    </section>
+
+    <!-- 8 FAQ -->
+    <section class="block" id="faq" aria-labelledby="h-faq">
+      <div class="block-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="h-faq">购票与放映的常见疑问</h2>
+      </div>
+
+      <details class="faq">
+        <summary>老片修复场次和普通数字厅有什么区别？</summary>
+        <div class="ans">修复场统一在3号厅与5号厅放映，母版来自中国电影资料馆或版权方的4K扫描件，映前有3至5分钟版本说明。普通数字厅多为院线密钥文件，画幅与声轨以发行方当前版本为准，两者排片不混排。票面“版本”栏会直接写扫描年份。</div>
+      </details>
+
+      <details class="faq">
+        <summary>影厅座位怎么选，二排中间真的好吗？</summary>
+        <div class="ans">1号厅银幕宽11.2米，最佳观影视角在7至9排正中；2号厅只有96座、坡度较缓，二排中间会让画面边缘超出视野。5号厅第2排第5—9座已标注“视野受限”，不参与早鸟优惠。选座页按排标了视距，按片长与画幅挑更稳妥。</div>
+      </details>
+
+      <details class="faq">
+        <summary>影展联票可以跨日使用吗？</summary>
+        <div class="ans">11月影展联票分单日票与全程票。单日票限当日四个场次内使用；全程票覆盖11月13日至22日的27场放映，不含特别加映的午夜场。退改按开场前2小时规则执行，换票需到2号厅旁服务台。</div>
+      </details>
+
+      <details class="faq">
+        <summary>午夜场散场后还有公共交通吗？</summary>
+        <div class="ans">22:00后开场的场次集中在1号厅与5号厅。最近的地铁末班在23:12，步行约9分钟；23:30后散场的场次，影院在检票口放置出租车候车指引牌。11月的午夜场共6场，其中3场为修复片加映。</div>
+      </details>
+
+      <details class="faq">
+        <summary>导演连线场可以提问吗？</summary>
+        <div class="ans">可以。连线场在映后留20分钟开放观众提问，麦克风设在1号厅过道中段，座位不固定，先到先得。主持人会先问两个固定问题，再开放观众席。11月9日《渡口纪事》连线对象为导演赵沐本人。</div>
+      </details>
+
+      <details class="faq">
+        <summary>亲子与无障碍场安排在什么时候？</summary>
+        <div class="ans">每月两场字幕增强版，安排在周六上午11:00的5号厅，音量比常规场低3分贝。无障碍场配口述影像耳机，需在开场前30分钟到检票口登记。11月的两场分别在11月14日与11月28日。</div>
+      </details>
+    </section>
+
+    <!-- 9 用户评论 -->
+    <section class="block" id="reviews" aria-labelledby="h-reviews">
+      <div class="block-head">
+        <span class="eyebrow">Audience</span>
+        <h2 id="h-reviews">散场问卷与观众留言</h2>
+        <p>按11月1日至8日的纸质问卷与线上留言整理，保留原始语气。</p>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <div class="who"><span class="avatar">周</span><span class="nm">周汀</span><span class="when">11-08</span></div>
+          <div class="stars" aria-label="评分 4 星">★★★★☆</div>
+          <p>《小城之春》2025扫描版暗部确实好，雨夜路灯边缘干净。就是3号厅第8排靠右还是有点偏，下次买正中。</p>
+        </article>
+        <article class="review">
+          <div class="who"><span class="avatar">何</span><span class="nm">何棠</span><span class="when">11-07</span></div>
+          <div class="stars" aria-label="评分 3 星">★★★☆☆</div>
+          <p>《渡口纪事》片子好，映后连线时间被压到20分钟，主持人问了两个问题就没时间了，有点亏。</p>
+        </article>
+        <article class="review">
+          <div class="who"><span class="avatar">陆</span><span class="nm">陆一舟</span><span class="when">11-07</span></div>
+          <div class="stars" aria-label="评分 4 星">★★★★☆</div>
+          <p>5号厅坡度是真的缓，坐第2排第6座看《午后三点半》，画面两边被切了一点。片子本身值。</p>
+        </article>
+        <article class="review">
+          <div class="who"><span class="avatar">郑</span><span class="nm">郑叙</span><span class="when">11-06</span></div>
+          <div class="stars" aria-label="评分 5 星">★★★★★</div>
+          <p>联票换票挺顺，服务台就在2号厅旁边。全程票不含午夜场这事买之前得看清楚，我差点搞错。</p>
+        </article>
+        <article class="review">
+          <div class="who"><span class="avatar">魏</span><span class="nm">魏岸</span><span class="when">11-06</span></div>
+          <div class="stars" aria-label="评分 2 星">★★☆☆☆</div>
+          <p>3号厅座椅更换那几天停售，公告写得太晚，我11月5日白跑一趟。场务通知应该提前三天发。</p>
+        </article>
+        <article class="review">
+          <div class="who"><span class="avatar">苏</span><span class="nm">苏雁</span><span class="when">11-05</span></div>
+          <div class="stars" aria-label="评分 5 星">★★★★★</div>
+          <p>《旧城墙》胶片扫描场的颗粒保留完整，双声道修复也够用。1号厅第7排中间视角很整。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关资讯 -->
+    <section class="block" id="news" aria-labelledby="h-news">
+      <div class="block-head">
+        <span class="eyebrow">News</span>
+        <h2 id="h-news">片单、影展与母版来源动态</h2>
+      </div>
+      <ul class="news">
+        <li><span class="time">11-08</span>中国电影资料馆2025年度第二批扫描清单公布，4部列入12月修复放映候选。<span class="src">来源：资料馆月度通报</span></li>
+        <li><span class="time">11-07</span>“城市与午后”单元27场票务完成，导演或主创到场6场，学者导赏3场。<span class="src">来源：影展排片页</span></li>
+        <li><span class="time">11-07</span>《午后三点半》导演剪辑版密钥到位，确认多出两场夜戏，片长96分钟。<span class="src">来源：发行方密钥通知</span></li>
+        <li><span class="time">11-06</span>影院完成3号厅126座座椅更换，第6—8排恢复售票。<span class="src">来源：场务通告</span></li>
+        <li><span class="time">11-05</span>11月亲子与无障碍场定档11月14日、28日，字幕增强版音量下调3分贝。<span class="src">来源：影院服务台</span></li>
+      </ul>
+    </section>
+
+    <!-- 11 相关推荐 -->
+    <section class="block" id="related" aria-labelledby="h-related">
+      <div class="block-head">
+        <span class="eyebrow">Related</span>
+        <h2 id="h-related">相关推荐标签</h2>
+      </div>
+      <div>
+        <a class="chip red" href="/#feature">老片4K修复怎么选座</a>
+        <a class="chip" href="/#feature">资料馆扫描件与版权方母版区别</a>
+        <a class="chip teal" href="/#halls">小厅坡度与视野受限座位</a>
+        <a class="chip" href="/#guide">影展联票换票流程</a>
+        <a class="chip red" href="/#faq">导演连线场提问规则</a>
+        <a class="chip" href="/#updates">11月排片临时变动</a>
+        <a class="chip teal" href="/#picks">青年导演首作长线场</a>
+        <a class="chip" href="/#review">散场问卷口碑榜</a>
+        <a class="chip" href="/#news">2025年度扫描清单</a>
+        <a class="chip red" href="/#faq">字幕增强版与口述影像耳机</a>
+        <a class="chip" href="/#guide">午夜场散场交通</a>
+        <a class="chip teal" href="/#halls">1号厅超宽画幅放映</a>
+      </div>
+    </section>
+
+  </div><!-- /main-col -->
+
+  <aside class="side-col" aria-label="侧栏导航与榜单">
+    <nav class="side-card" aria-labelledby="h-side-nav">
+      <h2 id="h-side-nav">栏目导航</h2>
+      <ul class="side-nav" id="sideNav">
+        <li><a href="/#overview">片单结构概览</a></li>
+        <li><a href="/#picks">本周六场推荐</a></li>
+        <li><a href="/#feature">修复场深度解析</a></li>
+        <li><a href="/#updates">排片与场务变动</a></li>
+        <li><a href="/#channels">按片单类型找片</a></li>
+        <li><a href="/#guide">首次来五个动作</a></li>
+        <li><a href="/#halls">四厅座位对照</a></li>
+        <li><a href="/#faq">购票与放映问答</a></li>
+        <li><a href="/#reviews">观众留言</a></li>
+        <li><a href="/#news">片单与母版动态</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-card" id="rank">
+      <h2>11月口碑榜（问卷计分）</h2>
+      <ol class="rank">
+        <li><b>《小城之春》4K修复</b><small>4.6 / 5 · 128份问卷</small></li>
+        <li><b>《旧城墙》胶片扫描</b><small>4.4 / 5 · 76份问卷</small></li>
+        <li><b>《渡口纪事》</b><small>4.3 / 5 · 94份问卷</small></li>
+        <li><b>《午后三点半》导演剪辑版</b><small>4.1 / 5 · 51份问卷</small></li>
+        <li><b>《雾中站台》</b><small>3.9 / 5 · 62份问卷</small></li>
+      </ol>
+    </div>
+
+    <div class="side-card">
+      <h2>本周场次时间线</h2>
+      <ul class="timeline">
+        <li><span class="day">11-08 周六 14:10</span>《小城之春》4K修复 · 3号厅</li>
+        <li><span class="day">11-09 周日 19:30</span>《渡口纪事》导演连线 · 1号厅</li>
+        <li><span class="day">11-10 周一 21:00</span>《午后三点半》首作长线 · 5号厅</li>
+        <li><span class="day">11-12 周三 13:20</span>《旧城墙》加映场 · 1号厅</li>
+        <li><span class="day">11-13 周四 起</span>“城市与午后”影展单元开票</li>
+      </ul>
+    </div>
+  </aside>
+</div><!-- /layout -->
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2f2d4a"/>
+            <rect x="14" y="15" width="36" height="7" rx="2" fill="#e8b23a"/>
+            <rect x="14" y="42" width="36" height="7" rx="2" fill="#e8b23a"/>
+            <circle cx="24" cy="32" r="5.6" fill="#f5f2e9"/>
+            <circle cx="40" cy="32" r="5.6" fill="#f5f2e9"/>
+            <circle cx="24" cy="32" r="2.1" fill="#2f2d4a"/>
+            <circle cx="40" cy="32" r="2.1" fill="#2f2d4a"/>
+          </svg>
+          <span class="brand-name">八度电影院</span>
+        </div>
+        <p>四厅、486座，以修复放映与首作长线为主，映前留版本说明，散场后留一盏讨论的灯。</p>
+      </div>
+      <div class="foot-col">
+        <h3>片单</h3>
+        <ul>
+          <li><a href="/#channels">老片4K修复放映</a></li>
+          <li><a href="/#channels">作者影展单元</a></li>
+          <li><a href="/#channels">青年导演首作</a></li>
+          <li><a href="/#channels">胶片扫描转数字</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>服务</h3>
+        <ul>
+          <li><a href="/#guide">购票与取票</a></li>
+          <li><a href="/#halls">影厅座位对照</a></li>
+          <li><a href="/#faq">联票与退改</a></li>
+          <li><a href="/#faq">无障碍与亲子场</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>了解</h3>
+        <ul>
+          <li><a href="/#feature">修复场判断方法</a></li>
+          <li><a href="/#reviews">观众留言</a></li>
+          <li><a href="/#news">母版来源动态</a></li>
+          <li><a href="/#rank">11月口碑榜</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>页面内片名、场次、座位与问卷数据为示例内容，用于展示排片结构；实际放映以影院当日公告为准。</span>
+      <span>更新时间 2026-11-08 10:40 ｜ 对应正文：11月8日加开场次、3号厅座椅完工、连线时间调整</span>
+    </div>
+    <div class="foot-note" style="border-top:0;padding-top:6px;margin-top:6px">
+      <span>© 2026 八度电影院 · 示例站点，未标注授权信息</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动菜单收起：点击导航链接后收起横向菜单（此处导航本身可滚动，按钮切换折叠状态） */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.querySelector('.main-nav');
+  var mqMobile = window.matchMedia('(max-width:680px)');
+  function syncMenuBtn(){
+    if(!menuBtn) return;
+    menuBtn.setAttribute('aria-expanded', mqMobile.matches ? 'false' : 'true');
+  }
+  syncMenuBtn();
+  window.addEventListener('resize', function(){
+    if(!mqMobile.matches && menuBtn) menuBtn.setAttribute('aria-expanded','true');
+  });
+  if(menuBtn && nav){
+    menuBtn.addEventListener('click', function(){
+      var expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      nav.style.display = expanded ? 'none' : 'flex';
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.closest('a') && mqMobile.matches){
+        menuBtn.setAttribute('aria-expanded','false');
+        nav.style.display = 'none';
+      }
+    });
+  }
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  function onScroll(){
+    if(window.scrollY > 420){ toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+    highlight();
+  }
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 侧栏滚动高亮 */
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var targets = sideLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function highlight(){
+    var pos = window.scrollY + 150;
+    var idx = -1;
+    for(var i=0;i<targets.length;i++){
+      if(targets[i].offsetTop <= pos){ idx = i; }
+    }
+    sideLinks.forEach(function(a){ a.classList.remove('active'); });
+    if(idx >= 0 && sideLinks[idx]) sideLinks[idx].classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* 本地搜索 */
+  var q = document.getElementById('q');
+  var btn = document.getElementById('searchBtn');
+  var fb = document.getElementById('searchFeedback');
+  var searchables = [];
+  document.querySelectorAll('.card h3, .list-tight li, .channel b, .news li, .review p, .side-card h2, .side-card li').forEach(function(el){
+    searchables.push(el);
+  });
+
+  function clearMarks(root){
+    root.querySelectorAll('mark').forEach(function(m){
+      var t = document.createTextNode(m.textContent);
+      m.parentNode.replaceChild(t, m);
+    });
+    root.normalize();
+  }
+  function runSearch(){
+    var kw = (q.value || '').trim();
+    if(!kw){ fb.classList.remove('show'); fb.textContent=''; clearMarks(document.body); return; }
+    clearMarks(document.body);
+    var hits = 0;
+    var lower = kw.toLowerCase();
+    searchables.forEach(function(el){
+      var txt = el.textContent;
+      if(txt.toLowerCase().indexOf(lower) === -1) return;
+      hits++;
+      var idx = txt.toLowerCase().indexOf(lower);
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+      var node;
+      while((node = walker.nextNode())){
+        var t = node.nodeValue.toLowerCase().indexOf(lower);
+        if(t === -1) continue;
+        var before = node.nodeValue.slice(0, t);
+        var match = node.nodeValue.slice(t, t + kw.length);
+        var after = node.nodeValue.slice(t + kw.length);
+        var frag = document.createDocumentFragment();
+        frag.appendChild(document.createTextNode(before));
+        var mark = document.createElement('mark');
+        mark.textContent = match;
+        frag.appendChild(mark);
+        frag.appendChild(document.createTextNode(after));
+        node.parentNode.replaceChild(frag, node);
+        break;
+      }
+    });
+    fb.classList.add('show');
+    if(hits === 0){
+      fb.textContent = '没有找到“' + kw + '”相关条目。可试：小城之春、渡口纪事、5号厅、联票。';
+    } else {
+      fb.textContent = '找到 ' + hits + ' 条包含“' + kw + '”的条目，已高亮标注。';
+      if(sideLinks[0]) {}
+    }
+  }
+  if(btn){ btn.addEventListener('click', runSearch); }
+  if(q){
+    q.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+    q.addEventListener('input', function(){
+      if(!q.value.trim()){ fb.classList.remove('show'); fb.textContent=''; clearMarks(document.body); }
+    });
+  }
+})();
+</script>
+</body>
+      </html>
