@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杏吧影视在线观看-影视点播指南与片库解析</title>
+<meta name="description" content="杏吧影视在线观看是面向影迷的在线影视点播指南，整理华语与海外剧集、电影片库、热门新片与播放体验说明，提供清晰分类、更新节奏与选片判断，帮你在点播前少走弯路。">
+<meta name="keywords" content="杏吧影视在线观看">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314181f'/%3E%3Cpath d='M14 18h36v28H14z' fill='none' stroke='%23e6b34b' stroke-width='3'/%3E%3Cpath d='M27 25l14 7-14 7z' fill='%23e6b34b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f1219;
+  --panel:#171c26;
+  --panel2:#1e2532;
+  --line:#2b3444;
+  --text:#e8ecf3;
+  --muted:#9aa7bb;
+  --gold:#e6b34b;
+  --gold-dim:#8a6a26;
+  --red:#d9534f;
+  --green:#4fbf8b;
+  --radius:12px;
+  --radius-s:8px;
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+  --fs-xs:.78rem;
+  --fs-s:.88rem;
+  --fs-m:1rem;
+  --fs-l:1.22rem;
+  --fs-xl:1.6rem;
+  --fs-xxl:2.1rem;
+  --space:16px;
+  --maxw:1180px;
+  --announce-h:40px;
+  --header-h:64px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--announce-h) + var(--header-h) + 12px)}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-size:var(--fs-m);line-height:1.75;
+}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+h1,h2,h3{line-height:1.35;margin:0}
+ul,ol{margin:0;padding-left:1.2em}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:#111;padding:8px 14px;z-index:999}
+.skip:focus{left:8px;top:8px}
+.announce{
+  position:sticky;top:0;z-index:60;height:var(--announce-h);
+  background:linear-gradient(90deg,#241a08,#2c2109);
+  border-bottom:1px solid var(--gold-dim);
+  display:flex;align-items:center;font-size:var(--fs-xs);color:#f0d9a8;
+}
+.announce .wrap{display:flex;gap:10px;align-items:center;width:100%;overflow:hidden;white-space:nowrap}
+.announce b{color:var(--gold);font-weight:700}
+.announce .tag{background:var(--gold);color:#1a1206;border-radius:4px;padding:1px 7px;font-weight:700;flex:none}
+header.site{
+  position:sticky;top:var(--announce-h);z-index:55;
+  background:rgba(15,18,25,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px;width:100%}
+.headbar{display:flex;align-items:center;gap:18px;height:var(--header-h)}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:34px;height:34px}
+.brand .bname{font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:.5px}
+.mainnav{display:flex;gap:4px;flex:1;min-width:0}
+.mainnav a{color:var(--muted);padding:6px 10px;border-radius:6px;font-size:var(--fs-s);white-space:nowrap}
+.mainnav a:hover,.mainnav a.active{color:#fff;background:var(--panel2);text-decoration:none}
+.headtools{display:flex;align-items:center;gap:10px;flex:none}
+.searchbox{display:flex;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:20px;padding:3px 4px 3px 12px}
+.searchbox input{background:none;border:0;color:var(--text);width:150px;font-size:var(--fs-s);outline:none}
+.searchbox button{background:var(--gold);border:0;color:#191206;border-radius:16px;padding:4px 12px;font-size:var(--fs-xs);font-weight:700}
+.searchresult{position:absolute;top:100%;right:18px;width:320px;max-width:calc(100vw - 36px);background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);box-shadow:var(--shadow);padding:8px;display:none;z-index:70;max-height:340px;overflow:auto}
+.searchresult.on{display:block}
+.searchresult a{display:block;padding:7px 9px;border-radius:6px;color:var(--text);font-size:var(--fs-s)}
+.searchresult a:hover{background:var(--panel2);text-decoration:none}
+.searchresult .none{color:var(--muted);font-size:var(--fs-s);padding:10px}
+.menubtn{display:none;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 11px;font-size:var(--fs-s)}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(1200px 420px at 80% -10%,rgba(230,179,75,.16),transparent 60%),linear-gradient(180deg,#121722,#0f1219)}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;padding:52px 0 46px;align-items:center}
+.hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-xs);color:var(--gold);border:1px solid var(--gold-dim);border-radius:20px;padding:3px 12px;margin-bottom:16px}
+.hero h1{font-size:clamp(1.7rem,3.6vw,2.55rem);color:#fff;letter-spacing:.5px}
+.hero p.lead{color:#c3cddd;margin:16px 0 0;max-width:560px;font-size:var(--fs-m)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;padding:10px 20px;border-radius:8px;font-size:var(--fs-s);font-weight:700;border:1px solid transparent}
+.btn.gold{background:var(--gold);color:#1a1206}
+.btn.gold:hover{background:#f0c467;text-decoration:none}
+.btn.ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.03)}
+.btn.ghost:hover{border-color:var(--gold);text-decoration:none}
+.hero-stats{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap}
+.hero-stats div{font-size:var(--fs-xs);color:var(--muted)}
+.hero-stats b{display:block;font-size:1.35rem;color:#fff;font-weight:800}
+.hero-art{position:relative;min-height:300px}
+.art-screen{position:relative;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,#1b2230,#11161f);box-shadow:var(--shadow);padding:14px;transform:rotate(-1.2deg)}
+.art-screen .bar{display:flex;gap:5px;margin-bottom:12px}
+.art-screen .bar i{width:9px;height:9px;border-radius:50%;background:#39445a;display:block}
+.art-screen .bar i:first-child{background:var(--red)}
+.art-screen .bar i:nth-child(2){background:var(--gold)}
+.grid-posters{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.poster{aspect-ratio:2/3;border-radius:6px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.poster::after{content:attr(data-t);position:absolute;left:0;right:0;bottom:0;font-size:.6rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.85));padding:14px 4px 3px;text-align:center;line-height:1.2}
+.p1{background:linear-gradient(160deg,#5b2f2f,#1c1114)}
+.p2{background:linear-gradient(160deg,#22415b,#101a22)}
+.p3{background:linear-gradient(160deg,#4a3c19,#1a150a)}
+.p4{background:linear-gradient(160deg,#2b3f2e,#10160f)}
+.p5{background:linear-gradient(160deg,#3a2b4d,#151020)}
+.p6{background:linear-gradient(160deg,#54402a,#181209)}
+.art-badge{position:absolute;right:-14px;bottom:-18px;background:var(--gold);color:#1a1206;border-radius:10px;padding:10px 14px;font-size:var(--fs-xs);font-weight:800;box-shadow:var(--shadow);transform:rotate(2deg)}
+.art-badge span{display:block;font-size:1.4rem;line-height:1.1}
+.pagewrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:34px;padding:42px 0 20px}
+section.block{margin-bottom:44px}
+section.block > .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.sec-head h2{font-size:var(--fs-l);color:#fff}
+.sec-head h2 .idx{color:var(--gold);font-size:var(--fs-xs);font-weight:700;margin-right:6px;letter-spacing:1px}
+.sec-head p{color:var(--muted);font-size:var(--fs-xs);margin:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.card h3{font-size:1.02rem;color:#fff;margin-bottom:8px}
+.muted{color:var(--muted);font-size:var(--fs-s)}
+.tagline{display:inline-block;font-size:var(--fs-xs);color:var(--gold);border:1px solid var(--gold-dim);border-radius:20px;padding:1px 10px;margin:0 6px 6px 0}
+.tagline:hover{background:rgba(230,179,75,.1);text-decoration:none}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.featured .card{display:flex;flex-direction:column;gap:10px}
+.featured .thumb{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--panel2)}
+.featured img{width:100%;height:100%;object-fit:cover}
+.featured .meta{font-size:var(--fs-xs);color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+.featured .card p{font-size:var(--fs-s);color:#c3cddd;margin:0}
+.featured .card h3 a{color:#fff}
+.featured .card h3 a:hover{color:var(--gold);text-decoration:none}
+.list-compact{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.list-compact .row{display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-bottom:1px solid var(--line)}
+.list-compact .row:last-child{border-bottom:0}
+.list-compact time{flex:none;width:64px;color:var(--gold);font-size:var(--fs-xs);padding-top:3px;font-variant-numeric:tabular-nums}
+.list-compact .info{min-width:0}
+.list-compact .info h3{font-size:var(--fs-s);color:#fff;margin:0 0 2px}
+.list-compact .info p{font-size:var(--fs-xs);color:var(--muted);margin:0}
+.cats{display:flex;flex-wrap:wrap;gap:10px}
+.cats a{display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:6px 15px;font-size:var(--fs-s);color:var(--text)}
+.cats a:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
+.cats a small{color:var(--muted);font-size:.7rem}
+.deep{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 26px 8px}
+.deep h2{font-size:var(--fs-xl);color:#fff;margin-bottom:6px}
+.deep .sub{color:var(--muted);font-size:var(--fs-xs);margin-bottom:22px;padding-bottom:16px;border-bottom:1px dashed var(--line)}
+.deep h3{font-size:1.08rem;color:var(--gold);margin:22px 0 8px}
+.deep p{margin:0 0 14px;color:#d3dae6}
+.deep p b{color:#fff}
+.deep ul{margin:0 0 16px;color:#d3dae6}
+.deep li{margin-bottom:6px}
+.callout{border-left:3px solid var(--gold);background:rgba(230,179,75,.07);border-radius:0 var(--radius-s) var(--radius-s) 0;padding:12px 16px;margin:0 0 18px;font-size:var(--fs-s);color:#e8dcc0}
+.tablewrap{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:var(--radius-s)}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-s);min-width:520px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--panel2);color:#fff;font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td{color:#c3cddd}
+.verdict{background:linear-gradient(135deg,#1d2433,#151a23);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-top:8px}
+.verdict h3{margin-top:0;color:var(--gold)}
+.verdict p{margin:0 0 8px;font-size:var(--fs-s)}
+.verdict p:last-child{margin-bottom:0}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;position:relative}
+.step .n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#1a1206;font-weight:800;font-size:var(--fs-s);align-items:center;justify-content:center;margin-bottom:8px}
+.step h3{font-size:var(--fs-s);color:#fff;margin-bottom:6px}
+.step p{font-size:var(--fs-xs);color:var(--muted);margin:0}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;padding:0 16px}
+.faq summary{list-style:none;cursor:pointer;padding:14px 0;font-weight:600;color:#fff;font-size:var(--fs-s);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:1.2rem;flex:none}
+.faq details[open] summary::after{content:"－"}
+.faq .ans{padding:0 0 14px;color:#c3cddd;font-size:var(--fs-s);margin:0}
+.comments{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 18px}
+.comment{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.comment:last-child{border-bottom:0}
+.avatar{flex:none;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:var(--fs-s);color:#1a1206}
+.a1{background:#e6b34b}.a2{background:#4fbf8b}.a3{background:#7aa2e6}.a4{background:#d98a8a}.a5{background:#b9a3e0}
+.comment .cbody{min-width:0}
+.comment .cname{font-size:var(--fs-s);font-weight:700;color:#fff}
+.comment .cname span{font-weight:400;color:var(--muted);font-size:var(--fs-xs);margin-left:8px}
+.comment p{margin:4px 0 0;font-size:var(--fs-s);color:#c3cddd}
+.timeline{position:relative;padding-left:22px;margin:0}
+.timeline::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.timeline li{list-style:none;position:relative;margin-bottom:16px}
+.timeline li::before{content:"";position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.timeline b{color:#fff;font-size:var(--fs-s)}
+.timeline span{color:var(--muted);font-size:var(--fs-xs);margin-left:8px}
+.timeline p{margin:2px 0 0;font-size:var(--fs-s);color:#c3cddd}
+.ranklist{counter-reset:rk;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 18px}
+.ranklist li{counter-increment:rk;list-style:none;display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+.ranklist li:last-child{border-bottom:0}
+.ranklist li::before{content:counter(rk);flex:none;width:24px;height:24px;border-radius:6px;background:var(--panel2);color:var(--gold);font-weight:800;font-size:var(--fs-xs);display:flex;align-items:center;justify-content:center;margin-top:2px}
+.ranklist .rk-t{min-width:0}
+.ranklist h3{font-size:var(--fs-s);color:#fff;margin:0 0 2px}
+.ranklist p{font-size:var(--fs-xs);color:var(--muted);margin:0}
+.quote{background:linear-gradient(135deg,#1e2532,#161b24);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:0 0 14px}
+.quote p{margin:0 0 8px;color:#e2e8f1;font-size:var(--fs-s)}
+.quote cite{font-style:normal;color:var(--muted);font-size:var(--fs-xs)}
+.sidebar{display:flex;flex-direction:column;gap:20px;position:relative}
+.sidebox{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.sidebox h3{font-size:var(--fs-s);color:#fff;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.sidebox nav a{display:block;padding:6px 9px;border-radius:6px;font-size:var(--fs-s);color:var(--muted);border-left:2px solid transparent}
+.sidebox nav a:hover{background:var(--panel2);text-decoration:none;color:#fff}
+.sidebox nav a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(230,179,75,.08)}
+.sidebox ul{list-style:none;padding:0;margin:0}
+.sidebox ul li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-s)}
+.sidebox ul li:last-child{border-bottom:0}
+.sidebox ul li a{color:#d3dae6}
+.sidebox .tip{font-size:var(--fs-xs);color:var(--muted);margin:8px 0 0}
+footer.site{background:#0b0e14;border-top:1px solid var(--line);margin-top:30px;padding:38px 0 26px}
+.footgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+.footgrid h4{font-size:var(--fs-s);color:#fff;margin:0 0 10px}
+.footgrid p{font-size:var(--fs-xs);color:var(--muted);margin:0 0 8px;line-height:1.8}
+.footgrid ul{list-style:none;padding:0;margin:0}
+.footgrid li{margin-bottom:6px}
+.footgrid li a{font-size:var(--fs-xs);color:var(--muted)}
+.footgrid li a:hover{color:var(--gold)}
+.footbrand{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.footbrand svg{width:28px;height:28px}
+.footbrand b{color:#fff;font-size:1rem}
+.footbottom{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:var(--fs-xs);color:var(--muted)}
+#totop{position:fixed;right:18px;bottom:22px;z-index:80;background:var(--gold);color:#1a1206;border:0;border-radius:50%;width:44px;height:44px;font-size:1.1rem;font-weight:800;box-shadow:var(--shadow);display:none;align-items:center;justify-content:center}
+#totop.on{display:flex}
+.panel-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:14px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius-s);overflow:hidden;font-size:var(--fs-s)}
+.compare > div{padding:14px 16px}
+.compare .ch{background:var(--panel2);font-weight:700;color:#fff}
+.compare .good{background:rgba(79,191,139,.08)}
+.compare .bad{background:rgba(217,83,79,.07)}
+.compare ul{padding-left:1.1em;margin:0;color:#c3cddd}
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr;gap:26px}
+  .sidebar{order:2}
+  .hero-inner{grid-template-columns:1fr;gap:26px;padding:38px 0 32px}
+  .hero-art{max-width:420px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footgrid{grid-template-columns:1fr 1fr}
+  .mainnav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--panel);border-bottom:1px solid var(--line);flex-direction:column;padding:10px 18px 16px;gap:2px;box-shadow:var(--shadow)}
+  .mainnav.open{display:flex}
+  .mainnav a{padding:10px 8px;font-size:var(--fs-m)}
+  .menubtn{display:inline-block}
+  .searchbox input{width:110px}
+  .headbar{gap:10px}
+}
+@media (max-width:620px){
+  .grid-2,.grid-3,.panel-grid,.compare{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero-stats{gap:18px}
+  .featured .card{padding:14px}
+  .deep{padding:18px 16px 4px}
+  .searchbox{display:none}
+  .sec-head h2{font-size:1.08rem}
+  .list-compact .row{padding:11px 13px}
+  .footgrid{grid-template-columns:1fr}
+  #totop{right:12px;bottom:14px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .art-screen{transform:none}
+  .art-badge{transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"杏吧影视在线观看",
+  "description":"在线影视点播指南，整理剧集、电影片库、更新节奏与播放体验说明。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"杏吧影视在线观看的片库更新节奏是怎样的？","acceptedAnswer":{"@type":"Answer","text":"剧集多在工作日傍晚入库，电影集中在每周五晚间补齐，片单页会显示具体入库日期。"}},
+    {"@type":"Question","name":"在线点播时清晰度怎么选？","acceptedAnswer":{"@type":"Answer","text":"手机流量播放选720p，家庭宽屏选1080p；片源若无高码率版本，页面会标注实际分辨率与码率。"}},
+    {"@type":"Question","name":"播放页面加载慢通常是什么原因？","acceptedAnswer":{"@type":"Answer","text":"常见原因有三类：本地网络带宽不足、片源节点在晚间高峰拥挤、浏览器缓存过期。可以按顺序排查。"}},
+    {"@type":"Question","name":"华语剧和海外剧的字幕配置有何差别？","acceptedAnswer":{"@type":"Answer","text":"华语剧多为内嵌简体字幕，海外剧提供外挂简体与双语字幕，部分冷门片仅保留英文硬字幕。"}},
+    {"@type":"Question","name":"收藏的剧集下架后会怎样？","acceptedAnswer":{"@type":"Answer","text":"收藏列表保留条目并标注下架日期，重新上架后自动恢复可播放状态，历史播放进度不丢失。"}}
+  ]
+}
+</script>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="/#main">跳到主要内容</a>
+
+<div class="announce">
+  <div class="wrap">
+    <span class="tag">更新</span>
+    <b>杏吧影视在线观看</b>
+    <span>11月7日新增《雾港以北》第9集、《长夜账本》全6集；11月8日都市悬疑专题上线</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap headbar">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" role="img" aria-label="影视播放标志">
+        <rect x="2" y="2" width="60" height="60" rx="14" fill="#171c26" stroke="#e6b34b" stroke-width="2"/>
+        <rect x="13" y="18" width="38" height="28" rx="4" fill="none" stroke="#e6b34b" stroke-width="2.6"/>
+        <path d="M27 25.5l13 6.5-13 6.5z" fill="#e6b34b"/>
+        <circle cx="19" cy="24" r="1.6" fill="#e6b34b"/>
+        <circle cx="45" cy="40" r="1.6" fill="#e6b34b"/>
+      </svg>
+      <span class="bname">杏吧影视在线观看</span>
+    </div>
+    <button class="menubtn" id="menubtn" aria-expanded="false" aria-controls="mainnav">菜单</button>
+    <nav class="mainnav" id="mainnav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#channels">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+    <div class="headtools">
+      <div class="searchbox">
+        <input id="q" type="search" placeholder="搜片名 / 演员" aria-label="站内搜索">
+        <button id="qbtn" type="button">查找</button>
+      </div>
+      <div class="searchresult" id="qres" role="region" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="kicker">片库 · 点播 · 选片判断</span>
+        <h1>杏吧影视在线观看</h1>
+        <p class="lead">把剧集与电影按清晰度、字幕配置、入库日期整理成可查的片单，给熬夜追剧的人一个先看简介、再决定点开的入口。本周重点新片与剧集更新都落在具体日期上，不用凭感觉猜。</p>
+        <div class="cta">
+          <a class="btn gold" href="/#updates">看今天更新</a>
+          <a class="btn ghost" href="/#deep">读深度解析</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>1,286</b>可点播条目</div>
+          <div><b>9</b>主题频道</div>
+          <div><b>14</b>本周新入库</div>
+          <div><b>720p–1080p</b>主片源区间</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-screen">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="grid-posters">
+            <div class="poster p1" data-t="雾港以北"></div>
+            <div class="poster p2" data-t="长夜账本"></div>
+            <div class="poster p3" data-t="旧城旅馆"></div>
+            <div class="poster p4" data-t="白露信号"></div>
+            <div class="poster p5" data-t="第七码头"></div>
+            <div class="poster p6" data-t="霜降之前"></div>
+          </div>
+        </div>
+        <div class="art-badge">本周新增<span>+14</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pagewrap">
+    <div class="layout">
+      <div class="content">
+
+        <section class="block" id="overview">
+          <div class="sec-head">
+            <h2><span class="idx">01</span>领域概览：在线点播片库在解决什么问题</h2>
+            <p>按片源属性、更新节奏、观看条件拆开看</p>
+          </div>
+          <div class="card">
+            <p>在线点播的核心不是“有没有片”，而是“点开之前能不能判断这一版值不值得看”。同一部剧在不同片源里可能是720p内嵌简体，也可能是1080p外挂双语；同一部电影可能只有院线剪辑版，也可能带导演剪辑段落。片库页把分辨率、码率、字幕形态、入库日期四项并排列出，就是为了让观众在点播前完成一次筛选。</p>
+            <p>按内容类型分，剧集更依赖更新节奏，电影更依赖片源版本。华语都市剧多以每周2至3集推进，海外剧常见整季上线或周更两种模式。电影方面，院线新片通常在上映后45至90天进入点播片库，冷门文艺片则可能直接跳过院线窗口。下表是本周整理的三类片源对照，数值来自各片单页标注。</p>
+            <div class="tablewrap">
+              <table>
+                <thead>
+                  <tr><th>片源类型</th><th>常见分辨率</th><th>字幕形态</th><th>本周入库数量</th><th>点播前建议确认</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>华语都市剧</td><td>1080p</td><td>内嵌简体</td><td>6</td><td>是否为完整版、单集体量</td></tr>
+                  <tr><td>海外悬疑剧</td><td>1080p</td><td>外挂简体/双语</td><td>5</td><td>字幕是否与剪辑版本对应</td></tr>
+                  <tr><td>院线电影</td><td>720p–1080p</td><td>内嵌简体</td><td>3</td><td>片长与院线版差异</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>片库规模上，可点播条目约1286个，其中剧集条目占比约六成，电影四成。这个结构决定了更新重心在剧集，电影补片更多以专题形式成组出现。想找某一类片，先看频道入口比直接翻全量片单更省时间。</p>
+          </div>
+        </section>
+
+        <section class="block" id="featured">
+          <div class="sec-head">
+            <h2><span class="idx">02</span>精选内容推荐：本周值得点开的五部</h2>
+            <p>按“片源完整度 + 口碑”双条件筛出</p>
+          </div>
+          <div class="grid-2 featured">
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/xingba-mist-harbor/640/360" width="640" height="360" loading="lazy" alt="雾港以北剧集海报，海岸灯塔与雨夜码头场景"></div>
+              <div class="meta"><span>悬疑剧</span><span>更新至第9集</span><span>1080p</span></div>
+              <h3><a href="/#updates">雾港以北</a></h3>
+              <p>海岸小城的失踪案牵出十年前的旧账，第9集把时间线拉回案发当晚。片源为内嵌简体，单集46分钟，适合连续追。</p>
+            </article>
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/xingba-ledger-night/640/360" width="640" height="360" loading="lazy" alt="长夜账本剧集海报，旧账册与台灯光影"></div>
+              <div class="meta"><span>年代剧</span><span>全6集</span><span>1080p</span></div>
+              <h3><a href="/#deep">长夜账本</a></h3>
+              <p>以一家账房为切口讲二十年家族沉浮，11月7日整季入库。台词密度高，建议打开外挂字幕逐集看。</p>
+            </article>
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/xingba-hotel-old/640/360" width="640" height="360" loading="lazy" alt="旧城旅馆电影海报，走廊尽头的老式旅馆房门"></div>
+              <div class="meta"><span>剧情片</span><span>片长112分钟</span><span>1080p</span></div>
+              <h3><a href="/#news">旧城旅馆</a></h3>
+              <p>三个住客在同一晚交错的故事，节奏偏慢。点播页标注了院线版与加长版片长差7分钟，选版本前可先看说明。</p>
+            </article>
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/xingba-signal-dew/640/360" width="640" height="360" loading="lazy" alt="白露信号剧集海报，电台天线与深夜城市"></div>
+              <div class="meta"><span>科幻剧</span><span>更新至第4集</span><span>720p</span></div>
+              <h3><a href="/#channels">白露信号</a></h3>
+              <p>深夜电台收到未来频段，第4集出现关键时间跳跃。目前最高720p，追求画质的可以等1080p片源补齐。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="block" id="updates">
+          <div class="sec-head">
+            <h2><span class="idx">03</span>最新更新：今天与本周入库清单</h2>
+            <p>时间以片单页入库日期为准</p>
+          </div>
+          <div class="list-compact">
+            <div class="row"><time datetime="2026-11-08">11月8日</time><div class="info"><h3>雾港以北 第9集</h3><p>悬疑剧 · 1080p内嵌简体 · 单集46分钟 · 关键证物出现</p></div></div>
+            <div class="row"><time datetime="2026-11-08">11月8日</time><div class="info"><h3>都市悬疑专题</h3><p>专题页 · 收录12部同类型剧集 · 附片源版本对照</p></div></div>
+            <div class="row"><time datetime="2026-11-07">11月7日</time><div class="info"><h3>长夜账本 全6集</h3><p>年代剧 · 1080p · 整季上线 · 外挂简体字幕</p></div></div>
+            <div class="row"><time datetime="2026-11-07">11月7日</time><div class="info"><h3>旧城旅馆 加长版</h3><p>剧情片 · 1080p · 片长119分钟 · 比院线版多7分钟</p></div></div>
+            <div class="row"><time datetime="2026-11-06">11月6日</time><div class="info"><h3>第七码头 第1–3集</h3><p>犯罪剧 · 720p · 新剧开播 · 每周四更新</p></div></div>
+            <div class="row"><time datetime="2026-11-05">11月5日</time><div class="info"><h3>霜降之前</h3><p>文艺片 · 1080p · 片长98分钟 · 内嵌简体</p></div></div>
+            <div class="row"><time datetime="2026-11-04">11月4日</time><div class="info"><h3>白露信号 第4集</h3><p>科幻剧 · 720p · 时间跳跃情节 · 片源待升级</p></div></div>
+          </div>
+        </section>
+
+        <section class="block" id="channels">
+          <div class="sec-head">
+            <h2><span class="idx">04</span>分类入口：按题材与观看场景进片库</h2>
+            <p>共9个频道，括号内为可点播条目数</p>
+          </div>
+          <div class="cats">
+            <a href="/#updates">都市悬疑剧 <small>186</small></a>
+            <a href="/#updates">年代家族剧 <small>142</small></a>
+            <a href="/#featured">海外犯罪剧 <small>214</small></a>
+            <a href="/#featured">院线剧情片 <small>238</small></a>
+            <a href="/#news">文艺冷门片 <small>96</small></a>
+            <a href="/#guide">科幻与时间线 <small>88</small></a>
+            <a href="/#faq">下饭轻喜剧 <small>164</small></a>
+            <a href="/#deep">纪实与访谈 <small>72</small></a>
+            <a href="/#overview">短片合集 <small>86</small></a>
+          </div>
+          <p class="muted" style="margin-top:14px">频道与片单同步更新。想按清晰度筛选，可先进入频道再切换片源标签；想按更新日期看，用最新更新清单更快。</p>
+        </section>
+
+        <section class="block" id="deep">
+          <div class="deep">
+            <h2><span class="idx">05</span>深度解析：点播体验的取舍，往往输在片源版本上</h2>
+            <p class="sub">一项可被核对、也可被反驳的判断</p>
+            <p>围绕在线点播的争论，多数落在“片库够不够大”。片库规模当然重要，但从11月1日至11月8日的片单记录看，观众点开一部剧后中途退出的主要原因，不是没片可看，而是片源版本与预期不符——字幕错位、片长缩水、分辨率标称与实测不一致。换句话说，片库规模决定选择面，片源版本决定留存率。</p>
+
+            <h3>判断一：字幕形态比分辨率更影响观感</h3>
+            <p>以11月7日入库的《长夜账本》为例，全6集均为1080p，但字幕为外挂简体。播放器默认字库较小，部分对白密集段落需要手动放大字号，前两集有观众在第3集片单页留言反馈字幕不同步约0.4秒。同一天入库的《旧城旅馆》加长版是内嵌简体，没有字幕不同步问题，但片长比院线版多出的7分钟集中在第2幕，节奏更慢。</p>
+            <div class="callout">可核对项：字幕不同步的反馈集中在11月7日22:00至23:30，片单页当日累计19条相关留言；11月8日10:00更新片源后，反馈停止增加。</div>
+            <p>这条判断可以被反驳：字幕不同步属于可修复的技术问题，修复后分辨率差异依然存在。但对当晚点开的观众而言，错位0.4秒的影响明显大于720p与1080p的差异，所以在本周样本里，字幕形态权重更高。</p>
+
+            <h3>判断二：片长标注缺位，比画质不足更劝退</h3>
+            <p>统计本周14个新入库条目，其中4个存在片长与院线版不一致的情况，只有《旧城旅馆》在片单页明确写出“加长版，多7分钟”。其余3个未标注差异，观众只能通过播放进度条估算。10月30日入库的《第七码头》第1集标注45分钟，实测43分12秒，属于片尾剪辑差异，影响不大；但11月5日入库的《霜降之前》标注98分钟，实际播放为92分钟，缺失段落发生在第3幕，属于实质性删减。</p>
+            <div class="tablewrap">
+              <table>
+                <thead><tr><th>条目</th><th>标注片长</th><th>实测片长</th><th>差异位置</th><th>是否标注</th></tr></thead>
+                <tbody>
+                  <tr><td>旧城旅馆 加长版</td><td>119分钟</td><td>119分钟</td><td>第2幕扩展</td><td>已标注</td></tr>
+                  <tr><td>霜降之前</td><td>98分钟</td><td>92分钟</td><td>第3幕缺失</td><td>未标注</td></tr>
+                  <tr><td>第七码头 第1集</td><td>45分钟</td><td>43分12秒</td><td>片尾剪辑</td><td>未标注</td></tr>
+                  <tr><td>长夜账本 第1集</td><td>51分钟</td><td>51分钟</td><td>无</td><td>已标注</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>把片长差异写进片单页并不难，难点在于维护。片源更新时同步改标注，需要人工核对，这也是本周记录里最容易被忽略的一环。对观众来说，标注缺位带来的损失是：看到一半发现少了关键段落，只能回头找别的版本。</p>
+
+            <h3>判断三：晚间高峰的卡顿，节点问题多于带宽问题</h3>
+            <p>11月6日20:30至22:00，片库监控记录到《第七码头》第2集的缓冲次数明显上升，同一时段《长夜账本》第1集播放平稳。两部片源存放在不同节点，前者在晚间分配的带宽段较窄。这个对比说明，卡顿不完全是本地网络问题。反过来说，如果本地带宽低于10Mbps，调到1080p同样会缓冲，两种原因需要分开排查。</p>
+            <div class="verdict">
+              <h3>结论拆成可核对的三层</h3>
+              <p><b>事实层：</b>本周14个新入库条目中，4个片长与院线版不一致，1个已标注，3个未标注。</p>
+              <p><b>回应层：</b>片源页在11月8日更新了字幕同步参数，字幕不同步反馈停止；片长标注仍在逐条补齐。</p>
+              <p><b>推测层：</b>若把片长与字幕标注做成入库必填项，中途退出率应会下降，但这需要连续两周的播放数据才能验证。</p>
+            </div>
+            <p>以上判断来自片单记录与留言汇总，样本只有一周，结论不排除在更长周期里被推翻。可反驳的地方在于：把片源版本问题归为留存率主因，忽略了剧情本身的吸引力差异；《长夜账本》留存高于同期其他剧，可能与题材相关，未必是字幕因素。</p>
+          </div>
+        </section>
+
+        <section class="block" id="guide">
+          <div class="sec-head">
+            <h2><span class="idx">06</span>体验指南：从找片到点开的四步</h2>
+            <p>照着做能少走两次弯路</p>
+          </div>
+          <div class="steps">
+            <div class="step"><span class="n">1</span><h3>先定题材再定片长</h3><p>悬疑剧优先看单集体量是否在45分钟左右；电影先确认片长是否与院线版一致。</p></div>
+            <div class="step"><span class="n">2</span><h3>核对片源版本</h3><p>看片单页的分辨率、字幕形态、入库日期三行。外挂字幕需要播放器支持，内嵌字幕更省事。</p></div>
+            <div class="step"><span class="n">3</span><h3>选清晰度</h3><p>手机流量用720p，家庭宽屏用1080p。标称1080p但码率偏低的条目，页面会注明实际码率。</p></div>
+            <div class="step"><span class="n">4</span><h3>收藏并等更新</h3><p>连载剧集收藏后在更新清单里看下一集日期，下架条目会标注日期，重新上架自动恢复。</p></div>
+          </div>
+          <div class="compare" style="margin-top:16px">
+            <div class="ch">内嵌字幕片源</div>
+            <div class="ch">外挂字幕片源</div>
+            <div class="good"><ul><li>无需额外加载字幕文件</li><li>字幕与画面严格同步</li><li>移动端播放更稳定</li></ul></div>
+            <div class="bad"><ul><li>字号与位置由片源决定</li><li>双语切换受限</li><li>冷门片可能只有简体</li></ul></div>
+          </div>
+        </section>
+
+        <section class="block" id="faq">
+          <div class="sec-head">
+            <h2><span class="idx">07</span>常见问题：点播前的具体疑问</h2>
+            <p>答案指向片库里的具体条目与规则</p>
+          </div>
+          <div class="faq">
+            <details open>
+              <summary>片库的更新节奏是怎样的？</summary>
+              <p class="ans">剧集多在工作日傍晚入库，电影集中在每周五晚间补齐。片单页会显示具体入库日期，连载剧集还会标出下一集预计日期，例如《第七码头》每周四更新一集。</p>
+            </details>
+            <details>
+              <summary>在线点播时清晰度怎么选？</summary>
+              <p class="ans">手机流量播放选720p，家庭宽屏选1080p。片源若没有高码率版本，页面会标注实际分辨率与码率；标称1080p但实测码率偏低的条目，片单页有单独说明。</p>
+            </details>
+            <details>
+              <summary>播放页面加载慢通常是什么原因？</summary>
+              <p class="ans">常见原因三类：本地网络带宽不足、片源节点在晚间高峰拥挤、浏览器缓存过期。11月6日20:30至22:00《第七码头》第2集的缓冲次数上升，属于节点问题；本地带宽低于10Mbps时调1080p也会缓冲，两种原因按顺序排查即可。</p>
+            </details>
+            <details>
+              <summary>华语剧和海外剧的字幕配置有何差别？</summary>
+              <p class="ans">华语剧多为内嵌简体字幕，海外剧提供外挂简体与双语字幕，部分冷门片仅保留英文硬字幕。外挂字幕需要播放器加载，移动端有时需要手动开启。</p>
+            </details>
+            <details>
+              <summary>收藏的剧集下架后会怎样？</summary>
+              <p class="ans">收藏列表保留条目并标注下架日期，重新上架后自动恢复可播放状态，历史播放进度不丢失。下架期间片单页仍可查看简介与片源版本记录。</p>
+            </details>
+            <details>
+              <summary>片长与院线版不一致时怎么确认？</summary>
+              <p class="ans">看片单页是否标明版本，如《旧城旅馆》加长版多7分钟已明确写出。未标注的条目可在播放进度条估算，差距超过3分钟建议在留言区反馈，片单维护会逐条核对。</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="block" id="comments">
+          <div class="sec-head">
+            <h2><span class="idx">08</span>用户评论：来自片单页的留言</h2>
+            <p>含中性反馈与具体条目吐槽</p>
+          </div>
+          <div class="comments">
+            <div class="comment">
+              <div class="avatar a1">阿</div>
+              <div class="cbody">
+                <div class="cname">阿岚 <span>11月8日 09:12</span></div>
+                <p>《雾港以北》第9集把第3集那条时间线接上了，之前觉得第5集拖沓的地方现在说得通。1080p的雨夜码头画面细节清楚，值得重看一遍。</p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="avatar a2">木</div>
+              <div class="cbody">
+                <div class="cname">木木 <span>11月7日 23:40</span></div>
+                <p>《长夜账本》字幕确实偏慢半拍，第3集账房对账那段台词密集，跟字幕看得有点吃力。外挂字幕能不能默认调大一号？</p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="avatar a3">老</div>
+              <div class="cbody">
+                <div class="cname">老周看片 <span>11月7日 21:05</span></div>
+                <p>《霜降之前》进度条显示98分钟，实际92分钟就结束了，第3幕看着接不上。片单页最好把删减写清楚，不然观众会以为是剪辑问题。</p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="avatar a4">小</div>
+              <div class="cbody">
+                <div class="cname">小满 <span>11月6日 22:36</span></div>
+                <p>《第七码头》第2集卡了两回，第1集没事。同一时段换《长夜账本》很顺，感觉是节点问题，不是我家网。</p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="avatar a5">电</div>
+              <div class="cbody">
+                <div class="cname">电台旧友 <span>11月5日 20:18</span></div>
+                <p>《白露信号》只有720p，时间跳跃那集的夜景噪点明显。剧情是真好看，画质再等一版。</p>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="avatar a1">橘</div>
+              <div class="cbody">
+                <div class="cname">橘子汽水 <span>11月4日 19:02</span></div>
+                <p>分类入口挺省事，按“年代家族剧”进去直接看到《长夜账本》，不用翻全量片单。就是分频道里的条目数更新慢了半拍。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" id="news">
+          <div class="sec-head">
+            <h2><span class="idx">09</span>相关资讯：片库与版本动态</h2>
+            <p>每条对应一个可核对的时间点</p>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <h3>都市悬疑专题11月8日上线</h3>
+              <p class="muted">专题收录12部同类型剧集，附片源版本对照表，方便按字幕形态与片长筛选。</p>
+            </article>
+            <article class="card">
+              <h3>《旧城旅馆》加长版11月7日入库</h3>
+              <p class="muted">比院线版多7分钟，集中在第2幕。片单页已标注版本差异与片长，点播前可先确认。</p>
+            </article>
+            <article class="card">
+              <h3>《霜降之前》片长标注待补</h3>
+              <p class="muted">实测92分钟，与标注的98分钟有差距。片单维护计划在11月10日前补齐版本说明。</p>
+            </article>
+            <article class="card">
+              <h3>字幕同步参数11月8日更新</h3>
+              <p class="muted">外挂简体字幕的默认同步参数调整后，《长夜账本》的错位反馈停止增加，片单页保留记录。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="block" id="ranking">
+          <div class="sec-head">
+            <h2><span class="idx">10</span>本周点播榜单：按完成观看比例排序</h2>
+            <p>统计区间11月1日至11月8日</p>
+          </div>
+          <ol class="ranklist">
+            <li><div class="rk-t"><h3>雾港以北</h3><p>完成率83% · 1080p内嵌简体 · 更新至第9集 · 悬疑线收束带动回看</p></div></li>
+            <li><div class="rk-t"><h3>长夜账本</h3><p>完成率79% · 1080p外挂简体 · 全6集 · 台词密度高，看第二遍的人不少</p></div></li>
+            <li><div class="rk-t"><h3>旧城旅馆 加长版</h3><p>完成率71% · 1080p内嵌简体 · 119分钟 · 多出的第2幕段落拉高完成率</p></div></li>
+            <li><div class="rk-t"><h3>第七码头</h3><p>完成率64% · 720p · 第2集节点卡顿影响完成率，第3集回升</p></div></li>
+            <li><div class="rk-t"><h3>白露信号</h3><p>完成率58% · 720p · 时间跳跃情节争议较大，弃剧集中在第3集</p></div></li>
+            <li><div class="rk-t"><h3>霜降之前</h3><p>完成率52% · 1080p · 片长标注差异影响观感，留言集中在第3幕</p></div></li>
+          </ol>
+        </section>
+
+        <section class="block" id="timeline">
+          <div class="sec-head">
+            <h2><span class="idx">11</span>片库时间线：一周内的关键节点</h2>
+            <p>按入库与调整日期排列</p>
+          </div>
+          <ul class="timeline">
+            <li><b>《第七码头》开播</b><span>11月4日</span><p>第1–3集入库，每周四更新一集，首日片源为720p。</p></li>
+            <li><b>《白露信号》第4集</b><span>11月4日</span><p>时间跳跃情节播出，片源暂为720p，1080p待补。</p></li>
+            <li><b>《霜降之前》入库</b><span>11月5日</span><p>文艺片，1080p内嵌简体，标注片长与实测存在差异。</p></li>
+            <li><b>《长夜账本》整季上线</b><span>11月7日</span><p>全6集，1080p外挂简体，字幕同步问题当晚集中反馈。</p></li>
+            <li><b>《旧城旅馆》加长版</b><span>11月7日</span><p>119分钟，比院线版多7分钟，片单页明确标注版本差异。</p></li>
+            <li><b>字幕参数更新与专题上线</b><span>11月8日</span><p>外挂字幕同步参数调整，都市悬疑专题同日上午上线。</p></li>
+          </ul>
+        </section>
+
+        <section class="block" id="related">
+          <div class="sec-head">
+            <h2><span class="idx">12</span>相关推荐：按你的看片习惯找下一部</h2>
+            <p>标签可直接进对应片单</p>
+          </div>
+          <div>
+            <a class="tagline" href="/#updates">都市悬疑剧片单</a>
+            <a class="tagline" href="/#featured">海外犯罪剧外挂字幕版</a>
+            <a class="tagline" href="/#deep">年代家族剧完整版对照</a>
+            <a class="tagline" href="/#guide">内嵌字幕电影合集</a>
+            <a class="tagline" href="/#news">文艺冷门片片源说明</a>
+            <a class="tagline" href="/#faq">下饭轻喜剧周更清单</a>
+            <a class="tagline" href="/#ranking">本周完成观看率榜单</a>
+            <a class="tagline" href="/#timeline">新入库时间线</a>
+          </div>
+          <div class="quote" style="margin-top:18px">
+            <p>“先看片长和字幕，再点播放。这两项对了，画质差一档也能看下去。”</p>
+            <cite>—— 一位连续追更《长夜账本》的观众在片单页的留言，11月8日</cite>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="sidebar" aria-label="侧栏导航与片单">
+        <div class="sidebox">
+          <h3>栏目导航</h3>
+          <nav id="sidenav">
+            <a href="/#overview">领域概览</a>
+            <a href="/#featured">精选内容推荐</a>
+            <a href="/#updates">最新更新</a>
+            <a href="/#channels">分类入口</a>
+            <a href="/#deep">深度解析</a>
+            <a href="/#guide">体验指南</a>
+            <a href="/#faq">常见问题</a>
+            <a href="/#comments">用户评论</a>
+            <a href="/#news">相关资讯</a>
+            <a href="/#ranking">本周点播榜单</a>
+            <a href="/#timeline">片库时间线</a>
+            <a href="/#related">相关推荐</a>
+          </nav>
+        </div>
+        <div class="sidebox">
+          <h3>本周必看片单</h3>
+          <ul>
+            <li><a href="/#updates">雾港以北 · 第9集</a></li>
+            <li><a href="/#deep">长夜账本 · 全6集</a></li>
+            <li><a href="/#news">旧城旅馆 · 加长版</a></li>
+            <li><a href="/#channels">白露信号 · 第4集</a></li>
+            <li><a href="/#featured">霜降之前 · 1080p</a></li>
+          </ul>
+          <p class="tip">片长与字幕形态以片单页标注为准。</p>
+        </div>
+        <div class="sidebox">
+          <h3>片源小提示</h3>
+          <p class="muted" style="margin:0">外挂字幕在移动端需手动加载；标称分辨率与实测码率不一致的条目，片单页会单独注明。晚间高峰卡顿可换720p或稍后再看。</p>
+        </div>
+        <div class="sidebox">
+          <h3>更新时间说明</h3>
+          <p class="muted" style="margin:0">正文更新项对应11月8日公告与片单记录：雾港以北第9集、长夜账本全6集、旧城旅馆加长版、都市悬疑专题。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <div class="footbrand">
+          <svg viewBox="0 0 64 64" role="img" aria-label="影视播放标志">
+            <rect x="2" y="2" width="60" height="60" rx="14" fill="#171c26" stroke="#e6b34b" stroke-width="2"/>
+            <rect x="13" y="18" width="38" height="28" rx="4" fill="none" stroke="#e6b34b" stroke-width="2.6"/>
+            <path d="M27 25.5l13 6.5-13 6.5z" fill="#e6b34b"/>
+          </svg>
+          <b>杏吧影视在线观看</b>
+        </div>
+        <p>把片长、字幕、清晰度与入库日期摆在点播前面，追剧和找片少一点试错。</p>
+        <p>示例数据说明：片库条目数、完成观看比例、留言时间为内容整理示例，用于说明版式与信息结构。</p>
+      </div>
+      <div>
+        <h4>片库频道</h4>
+        <ul>
+          <li><a href="/#updates">都市悬疑剧</a></li>
+          <li><a href="/#updates">年代家族剧</a></li>
+          <li><a href="/#featured">海外犯罪剧</a></li>
+          <li><a href="/#featured">院线剧情片</a></li>
+          <li><a href="/#news">文艺冷门片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>看片帮助</h4>
+        <ul>
+          <li><a href="/#guide">清晰度选择</a></li>
+          <li><a href="/#faq">字幕配置问题</a></li>
+          <li><a href="/#faq">片长差异确认</a></li>
+          <li><a href="/#ranking">本周点播榜单</a></li>
+          <li><a href="/#timeline">新入库时间线</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更新与说明</h4>
+        <ul>
+          <li><a href="/#updates">11月8日更新</a></li>
+          <li><a href="/#news">版本动态</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>© 2026 杏吧影视在线观看 · 内容整理示例，片源信息以片单页标注为准</span>
+      <span>页面更新：2026年11月8日</span>
+    </div>
+  </div>
+</footer>
+
+<button id="totop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var q=document.getElementById('q');
+  var qbtn=document.getElementById('qbtn');
+  var qres=document.getElementById('qres');
+  var items=[
+    {t:'雾港以北',d:'悬疑剧 · 更新至第9集 · 1080p',h:'/#updates'},
+    {t:'长夜账本',d:'年代剧 · 全6集 · 外挂简体字幕',h:'/#deep'},
+    {t:'旧城旅馆 加长版',d:'剧情片 · 119分钟 · 多7分钟',h:'/#news'},
+    {t:'白露信号',d:'科幻剧 · 第4集 · 720p',h:'/#channels'},
+    {t:'第七码头',d:'犯罪剧 · 第1–3集 · 每周四更新',h:'/#updates'},
+    {t:'霜降之前',d:'文艺片 · 98分钟标注 · 片源待补说明',h:'/#news'},
+    {t:'都市悬疑专题',d:'专题 · 12部剧集 · 片源版本对照',h:'/#news'},
+    {t:'本周点播榜单',d:'完成观看比例排序 · 11月1日至8日',h:'/#ranking'}
+  ];
+  function doSearch(){
+    var v=q.value.trim();
+    qres.innerHTML='';
+    if(!v){qres.classList.remove('on');return;}
+    var hits=items.filter(function(x){return x.t.indexOf(v)>-1||x.d.indexOf(v)>-1;});
+    if(hits.length===0){
+      qres.innerHTML='<div class="none">没有找到“'+v.replace(/[<>]/g,'')+'”。试试片名关键词，如“账本”“码头”。</div>';
+    }else{
+      hits.forEach(function(x){
+        var a=document.createElement('a');
+        a.href=x.h;a.textContent=x.t+' — '+x.d;
+        qres.appendChild(a);
+      });
+    }
+    qres.classList.add('on');
+  }
+  qbtn.addEventListener('click',doSearch);
+  q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});
+  document.addEventListener('click',function(e){
+    if(!qres.contains(e.target)&&e.target!==q&&e.target!==qbtn){qres.classList.remove('on');}
+  });
+
+  var mbtn=document.getElementById('menubtn');
+  var nav=document.getElementById('mainnav');
+  mbtn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    mbtn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'&&window.innerWidth<=960){
+      nav.classList.remove('open');
+      mbtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  var totop=document.getElementById('totop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>500){totop.classList.add('on');}else{totop.classList.remove('on');}
+  },{passive:true});
+  totop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var links=Array.prototype.slice.call(document.querySelectorAll('#sidenav a'));
+  var sections=links.map(function(a){
+    return document.querySelector(a.getAttribute('href').replace('/#','#'));
+  }).filter(Boolean);
+  function highlight(){
+    var pos=window.scrollY+160;
+    var idx=-1;
+    sections.forEach(function(s,i){if(s.offsetTop<=pos){idx=i;}});
+    links.forEach(function(a,i){a.classList.toggle('active',i===idx);});
+  }
+  window.addEventListener('scroll',highlight,{passive:true});
+  highlight();
+})();
+</script>
+</body>
+</html>
