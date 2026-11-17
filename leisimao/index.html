@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蕾丝猫网页版入口-在线访问与功能说明</title>
+<meta name="description" content="蕾丝猫网页版入口提供在线访问方式与功能说明，整理浏览器端打开步骤、账号登录流程、页面模块介绍与常见问题解答，帮助用户在电脑或手机上快速进入并使用，含更新记录与体验指南。">
+<meta name="keywords" content="蕾丝猫网页版入口">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b2440'/%3E%3Cpath d='M16 24 L24 14 L30 24 M48 24 L40 14 L34 24' stroke='%23f0b7c8' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='36' r='3' fill='%23f0b7c8'/%3E%3Ccircle cx='40' cy='36' r='3' fill='%23f0b7c8'/%3E%3Cpath d='M26 46 Q32 52 38 46' stroke='%23f0b7c8' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#231f2e;
+  --ink-soft:#4a4458;
+  --muted:#7a7289;
+  --paper:#fbf8f6;
+  --card:#ffffff;
+  --line:#e7e0e4;
+  --lace:#c96b8c;
+  --lace-deep:#a44a6b;
+  --lace-wash:#f7e3ea;
+  --cat:#2b2440;
+  --cat-soft:#3a3155;
+  --gold:#c9a05c;
+  --ok:#3f7d63;
+  --warn:#a5591f;
+  --radius:14px;
+  --radius-sm:9px;
+  --shadow:0 2px 4px rgba(35,31,46,.05),0 10px 26px rgba(35,31,46,.07);
+  --shadow-sm:0 1px 2px rgba(35,31,46,.06),0 4px 12px rgba(35,31,46,.05);
+  --sp-1:6px;--sp-2:10px;--sp-3:16px;--sp-4:24px;--sp-5:36px;--sp-6:56px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --announce-h:40px;
+  --head-h:64px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;display:block;}
+a{color:var(--lace-deep);text-decoration:none;}
+a:hover{text-decoration:underline;}
+p{margin:0 0 14px;}
+h1,h2,h3,h4{margin:0 0 12px;line-height:1.35;font-weight:700;}
+h1{font-size:clamp(26px,4vw,40px);}
+h2{font-size:clamp(21px,2.6vw,27px);}
+h3{font-size:clamp(17px,2vw,19px);}
+ul,ol{margin:0 0 14px;padding-left:1.3em;}
+li{margin-bottom:6px;}
+section[id]{scroll-margin-top:calc(var(--announce-h) + var(--head-h) + 14px);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--sp-3);}
+.skip{position:absolute;left:-9999px;top:0;background:#fff;color:var(--cat);padding:10px 16px;z-index:200;border-radius:0 0 8px 0;}
+.skip:focus{left:0;}
+
+/* 吸顶公告条 */
+.announce{
+  position:sticky;top:0;z-index:60;
+  background:linear-gradient(90deg,var(--cat),var(--cat-soft));
+  color:#efeaf4;
+  font-size:13.5px;
+  height:var(--announce-h);
+  display:flex;align-items:center;
+}
+.announce .wrap{display:flex;align-items:center;gap:10px;width:100%;}
+.announce .dot{width:8px;height:8px;border-radius:50%;background:var(--lace);flex:none;box-shadow:0 0 0 3px rgba(201,107,140,.28);}
+.announce strong{color:#f6c6d6;font-weight:600;}
+.announce .ann-txt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.announce a{color:#f6c6d6;text-decoration:underline;white-space:nowrap;margin-left:auto;font-weight:600;}
+
+/* 页头 */
+.site-head{
+  position:sticky;top:var(--announce-h);z-index:55;
+  background:rgba(251,248,246,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;gap:18px;height:var(--head-h);}
+.brand{display:flex;align-items:center;gap:10px;flex:none;}
+.brand svg{width:36px;height:36px;flex:none;}
+.brand-txt{font-weight:800;font-size:18px;letter-spacing:.5px;color:var(--ink);white-space:nowrap;}
+.nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:6px;}
+.nav a{
+  font-size:14.5px;color:var(--ink-soft);padding:7px 11px;border-radius:99px;
+  transition:background .18s,color .18s;text-decoration:none;
+}
+.nav a:hover,.nav a:focus-visible{background:var(--lace-wash);color:var(--lace-deep);text-decoration:none;}
+.head-actions{margin-left:auto;display:flex;align-items:center;gap:10px;flex:none;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border-radius:99px;padding:9px 18px;font-size:14.5px;font-weight:600;
+  border:1px solid transparent;cursor:pointer;font-family:inherit;
+  transition:transform .18s,box-shadow .18s,background .18s;
+  text-decoration:none;line-height:1.4;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px);}
+.btn-primary{background:var(--lace);color:#fff;box-shadow:0 4px 14px rgba(201,107,140,.35);}
+.btn-primary:hover{background:var(--lace-deep);}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink-soft);}
+.btn-ghost:hover{border-color:var(--lace);color:var(--lace-deep);}
+.menu-btn{display:none;background:transparent;border:1px solid var(--line);border-radius:var(--radius-sm);width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);}
+.menu-btn:focus-visible{outline:3px solid var(--lace);outline-offset:2px;}
+.menu-btn svg{width:20px;height:20px;}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 88% 8%,rgba(201,107,140,.16),transparent 46%),
+    radial-gradient(circle at 4% 92%,rgba(201,160,92,.13),transparent 42%),
+    linear-gradient(160deg,#fdf7f4 0%,#faf1f4 55%,#f6ecf1 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:var(--sp-5);align-items:center;
+  padding:var(--sp-6) 0;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+  color:var(--lace-deep);background:#fff;border:1px solid var(--lace-wash);
+  padding:5px 13px;border-radius:99px;margin-bottom:16px;box-shadow:var(--shadow-sm);
+}
+.hero h1{color:var(--cat);margin-bottom:14px;}
+.hero h1 .accent{color:var(--lace-deep);}
+.hero-lead{font-size:17px;color:var(--ink-soft);max-width:44em;margin-bottom:22px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:26px;border-top:1px dashed var(--line);padding-top:20px;}
+.stat b{display:block;font-size:23px;color:var(--cat);line-height:1.2;}
+.stat span{font-size:12.5px;color:var(--muted);}
+.hero-art{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center;}
+.hero-art svg{width:100%;height:auto;max-width:430px;filter:drop-shadow(0 14px 28px rgba(43,36,64,.13));}
+.hero-art .tag{
+  position:absolute;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--ink-soft);
+  box-shadow:var(--shadow-sm);white-space:nowrap;
+}
+.hero-art .t1{top:4%;left:0;color:var(--lace-deep);}
+.hero-art .t2{bottom:12%;right:0;color:var(--ok);}
+.hero-art .t3{bottom:0;left:12%;color:var(--warn);}
+
+/* 频道入口横条 */
+.channels{background:var(--card);border-bottom:1px solid var(--line);}
+.channels .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:thin;}
+.channels a{
+  flex:none;font-size:13.5px;padding:7px 14px;border-radius:99px;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);
+  text-decoration:none;transition:background .18s,border-color .18s,color .18s;white-space:nowrap;
+}
+.channels a:hover,.channels a:focus-visible{background:var(--lace-wash);border-color:var(--lace);color:var(--lace-deep);}
+
+/* 布局 */
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;
+  gap:var(--sp-5);align-items:start;
+  padding:var(--sp-5) 0;
+}
+.main-col{min-width:0;}
+.side-col{position:sticky;top:calc(var(--announce-h) + var(--head-h) + 18px);display:flex;flex-direction:column;gap:var(--sp-4);}
+
+/* 文章区 */
+.article-section{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:var(--sp-4);box-shadow:var(--shadow-sm);
+}
+h2.sec-title{display:flex;align-items:center;gap:10px;color:var(--cat);}
+h2.sec-title::before{
+  content:"";width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--lace),var(--gold));flex:none;
+}
+.sec-sub{font-size:13.5px;color:var(--muted);margin:-6px 0 18px;}
+
+/* 板块通用 */
+.block{margin-bottom:var(--sp-5);}
+.block-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.block-head .more{font-size:13.5px;font-weight:600;color:var(--lace-deep);white-space:nowrap;}
+
+/* 卡片网格 */
+.grid{display:grid;gap:var(--sp-3);}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d9cbd3;}
+.card-img{width:100%;height:150px;object-fit:cover;background:#eee;}
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;}
+.card-body h3{font-size:16px;margin-bottom:6px;color:var(--cat);}
+.card-body p{font-size:13.5px;color:var(--ink-soft);margin-bottom:10px;flex:1;}
+.meta{font-size:12px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.pill{
+  display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;
+  background:var(--lace-wash);color:var(--lace-deep);line-height:1.7;
+}
+.pill-ok{background:#e6f2ec;color:var(--ok);}
+.pill-warn{background:#fbf0e2;color:var(--warn);}
+.pill-gray{background:#f0edf2;color:var(--ink-soft);}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;padding:0;margin:0;}
+.tight-list li{
+  display:flex;gap:12px;align-items:baseline;
+  padding:11px 0;border-bottom:1px dashed var(--line);margin:0;
+}
+.tight-list li:last-child{border-bottom:none;}
+.tight-list .date{font-size:12.5px;color:var(--muted);flex:none;font-variant-numeric:tabular-nums;width:76px;}
+.tight-list a{font-size:14.5px;color:var(--ink);font-weight:600;}
+.tight-list a:hover{color:var(--lace-deep);}
+.tight-list .note{font-size:12.5px;color:var(--muted);margin-left:auto;flex:none;}
+
+/* 分类索引 */
+.cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.cat-item{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--paper);font-size:14px;color:var(--ink);font-weight:600;
+  transition:background .18s,border-color .18s;text-decoration:none;
+}
+.cat-item:hover{background:var(--lace-wash);border-color:var(--lace);color:var(--lace-deep);text-decoration:none;}
+.cat-item .cnt{font-size:12px;color:var(--muted);font-weight:500;}
+
+/* 深度解析 */
+.deep{background:linear-gradient(180deg,#fff,#fdf8fa);}
+.deep h3{margin-top:24px;color:var(--cat);border-left:4px solid var(--lace);padding-left:11px;}
+.deep h3:first-of-type{margin-top:6px;}
+.deep p{color:var(--ink-soft);}
+.judge{
+  border:1px solid var(--lace-wash);background:#fff;border-radius:var(--radius-sm);
+  padding:15px 17px;margin:18px 0;box-shadow:var(--shadow-sm);
+}
+.judge strong{color:var(--lace-deep);}
+.compare{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0 18px;}
+.compare th,.compare td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+.compare th{background:var(--lace-wash);color:var(--lace-deep);font-weight:700;}
+.compare td{color:var(--ink-soft);}
+
+/* 步骤 */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;display:grid;gap:12px;}
+.steps li{
+  counter-increment:step;position:relative;padding:14px 16px 14px 56px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  font-size:14px;color:var(--ink-soft);
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:14px;top:13px;
+  width:28px;height:28px;border-radius:50%;background:var(--cat);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+}
+.steps li b{color:var(--cat);display:block;margin-bottom:2px;font-size:14.5px;}
+
+/* 对照面板 */
+.panel-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3);}
+.panel{
+  border-radius:var(--radius-sm);padding:16px 18px;border:1px solid var(--line);
+  background:var(--card);
+}
+.panel h3{font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.panel ul{margin:0;padding-left:1.1em;font-size:13.5px;color:var(--ink-soft);}
+.panel.ok{border-top:3px solid var(--ok);}
+.panel.warn{border-top:3px solid var(--warn);}
+.panel.ok h3{color:var(--ok);}
+.panel.warn h3{color:var(--warn);}
+
+/* FAQ */
+.faq details{
+  border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--card);
+  margin-bottom:10px;overflow:hidden;
+}
+.faq summary{
+  cursor:pointer;padding:13px 44px 13px 16px;font-size:14.5px;font-weight:600;color:var(--cat);
+  position:relative;list-style:none;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  font-size:20px;color:var(--lace);font-weight:400;line-height:1;
+}
+.faq details[open] summary::after{content:"−";}
+.faq details[open] summary{border-bottom:1px dashed var(--line);}
+.faq .ans{padding:13px 16px;font-size:13.8px;color:var(--ink-soft);}
+.faq summary:focus-visible{outline:3px solid var(--lace);outline-offset:-3px;}
+
+/* 评论 */
+.comments{display:grid;gap:12px;}
+.comment{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:13px 16px;font-size:14px;color:var(--ink-soft);
+}
+.comment .who{display:flex;align-items:center;gap:9px;margin-bottom:6px;font-size:12.8px;color:var(--muted);}
+.av{
+  width:26px;height:26px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;
+  background:var(--cat);
+}
+.av.b{background:var(--lace);}
+.av.c{background:var(--ok);}
+.av.d{background:var(--gold);}
+.av.e{background:var(--warn);}
+.comment .who b{color:var(--ink);font-size:13px;font-weight:700;}
+.comment .who .t{margin-left:auto;font-size:12px;color:var(--muted);}
+.comment p{margin:0 0 4px;}
+
+/* 标签索引 */
+.tags{display:flex;flex-wrap:wrap;gap:9px;}
+.tags a{
+  font-size:13px;padding:6px 13px;border-radius:99px;background:var(--paper);
+  border:1px solid var(--line);color:var(--ink-soft);text-decoration:none;
+  transition:background .18s,border-color .18s,color .18s;
+}
+.tags a:hover,.tags a:focus-visible{background:var(--cat);border-color:var(--cat);color:#fff;text-decoration:none;}
+
+/* 引语卡 */
+.quote{
+  border-left:4px solid var(--gold);background:#fdf9f0;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:15px 18px;font-size:14px;color:var(--ink-soft);margin:0 0 14px;
+}
+.quote b{color:var(--cat);}
+
+/* 时间线 */
+.timeline{position:relative;padding-left:24px;margin:0;list-style:none;}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--lace-wash);}
+.timeline li{position:relative;margin-bottom:16px;font-size:13.8px;color:var(--ink-soft);}
+.timeline li::before{
+  content:"";position:absolute;left:-23px;top:7px;width:10px;height:10px;border-radius:50%;
+  background:#fff;border:2.5px solid var(--lace);
+}
+.timeline b{display:block;color:var(--cat);font-size:14px;margin-bottom:2px;}
+.timeline .when{font-size:12px;color:var(--muted);}
+
+/* 侧栏 */
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow-sm);
+}
+.side-card h3{font-size:15px;color:var(--cat);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.side-card h3::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--lace);flex:none;}
+.side-nav{display:flex;flex-direction:column;gap:2px;}
+.side-nav a{
+  font-size:13.6px;color:var(--ink-soft);padding:7px 10px;border-radius:7px;border-left:3px solid transparent;
+  text-decoration:none;transition:background .15s,color .15s,border-color .15s;
+}
+.side-nav a:hover{background:var(--paper);color:var(--lace-deep);text-decoration:none;}
+.side-nav a.active{background:var(--lace-wash);color:var(--lace-deep);border-left-color:var(--lace);font-weight:600;}
+.search-box{display:flex;gap:7px;margin-bottom:10px;}
+.search-box input{
+  flex:1;min-width:0;font:inherit;font-size:13.5px;padding:8px 11px;border-radius:8px;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+}
+.search-box input:focus-visible{outline:3px solid var(--lace-wash);border-color:var(--lace);}
+.search-results{font-size:13px;color:var(--ink-soft);max-height:230px;overflow:auto;}
+.search-results a{display:block;padding:7px 0;border-bottom:1px dashed var(--line);color:var(--ink);font-size:13.2px;}
+.search-results a:hover{color:var(--lace-deep);}
+.search-results .empty{color:var(--muted);font-size:13px;padding:6px 0;}
+.side-list{list-style:none;padding:0;margin:0;font-size:13.5px;}
+.side-list li{padding:8px 0;border-bottom:1px dashed var(--line);margin:0;display:flex;gap:8px;}
+.side-list li:last-child{border-bottom:none;}
+.side-list .n{font-weight:800;color:var(--lace);font-variant-numeric:tabular-nums;flex:none;width:18px;}
+.side-list a{color:var(--ink-soft);}
+.side-list a:hover{color:var(--lace-deep);}
+
+/* 页尾 */
+.site-foot{background:var(--cat);color:#cfc7da;margin-top:var(--sp-6);padding:var(--sp-5) 0 0;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:var(--sp-4);}
+.site-foot h4{color:#fff;font-size:14px;margin-bottom:12px;letter-spacing:.4px;}
+.site-foot a{color:#cfc7da;font-size:13.5px;display:block;padding:4px 0;}
+.site-foot a:hover{color:#f6c6d6;text-decoration:none;}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.foot-brand svg{width:32px;height:32px;}
+.foot-brand b{color:#fff;font-size:17px;}
+.foot-desc{font-size:13.5px;color:#b6adc4;line-height:1.8;margin-bottom:12px;}
+.foot-note{font-size:12.5px;color:#9c93ad;line-height:1.8;}
+.foot-bottom{
+  margin-top:var(--sp-4);border-top:1px solid rgba(255,255,255,.1);
+  padding:18px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  font-size:12.5px;color:#9c93ad;
+}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:20px;bottom:22px;z-index:50;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--cat);display:none;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);cursor:pointer;transition:transform .18s;
+}
+.to-top.show{display:flex;}
+.to-top:hover{transform:translateY(-3px);}
+.to-top svg{width:19px;height:19px;}
+
+/* 响应式 */
+@media (max-width:1020px){
+  .layout{grid-template-columns:1fr;}
+  .side-col{position:static;order:2;}
+  .hero-inner{grid-template-columns:1fr;gap:var(--sp-4);padding:var(--sp-5) 0;}
+  .hero-art{min-height:240px;order:-1;}
+  .hero-art svg{max-width:330px;}
+  .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+  .nav{display:none;}
+  .nav.open{
+    display:flex;position:absolute;left:0;right:0;top:var(--head-h);
+    background:#fff;border-bottom:1px solid var(--line);padding:10px 16px;margin:0;
+    flex-direction:column;gap:2px;box-shadow:var(--shadow);
+  }
+  .nav.open a{padding:10px 12px;border-radius:8px;}
+  .menu-btn{display:inline-flex;}
+  .site-head{position:sticky;}
+  .head-inner{position:relative;}
+}
+@media (max-width:680px){
+  .grid-3,.grid-2,.cat-grid,.panel-pair{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:18px;}
+  .stat b{font-size:20px;}
+  .announce a{display:none;}
+  .head-actions .btn-ghost{display:none;}
+  .to-top{right:14px;bottom:16px;}
+  .article-section{padding:var(--sp-3);}
+  .tight-list .note{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition:none!important;animation:none!important;}
+  .card:hover,.btn:hover,.to-top:hover{transform:none;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<!-- 公告条 -->
+<div class="announce" role="region" aria-label="站内更新公告">
+  <div class="wrap">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="ann-txt"><strong>11月7日更新</strong>：网页版登录页新增「扫码进入」通道，账号密码与扫码两种方式均可使用</span>
+    <a href="/#updates">查看更新记录</a>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/#top" aria-label="蕾丝猫网页版入口 首页">
+      <svg viewBox="0 0 64 64" role="img" aria-label="蕾丝猫图形标志">
+        <rect width="64" height="64" rx="14" fill="#2b2440"/>
+        <path d="M15 25 L23 13 L30 25" stroke="#f0b7c8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M49 25 L41 13 L34 25" stroke="#f0b7c8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14 27 Q32 22 50 27 Q50 44 32 50 Q14 44 14 27 Z" fill="none" stroke="#f0b7c8" stroke-width="2.6"/>
+        <circle cx="25" cy="35" r="2.6" fill="#f0b7c8"/>
+        <circle cx="39" cy="35" r="2.6" fill="#f0b7c8"/>
+        <path d="M27 44 Q32 49 37 44" stroke="#c9a05c" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <path d="M32 30 L30 36 M32 30 L34 36" stroke="#f0b7c8" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-txt">蕾丝猫网页版入口</span>
+    </a>
+    <nav class="nav" id="topNav" aria-label="主导航">
+      <a href="/#overview">功能概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#channels">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#reviews">用户评论</a>
+    </nav>
+    <div class="head-actions">
+      <a class="btn btn-ghost" href="/#guide">进入步骤</a>
+      <a class="btn btn-primary" href="/#channels">打开入口</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="topNav" aria-label="展开导航菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        浏览器直接访问 · 无需安装客户端
+      </span>
+      <h1>蕾丝猫网页版入口</h1>
+      <p class="hero-lead">在电脑浏览器或手机浏览器里打开同一个地址，用账号密码或扫码进入，就能查看收藏夹、浏览历史与消息中心。页面按功能区划分，进入后先看顶栏，再按左侧导航逐项熟悉，比在应用商店翻说明快得多。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/#guide">按步骤进入</a>
+        <a class="btn btn-ghost" href="/#overview">先看功能概览</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>2</b><span>登录方式</span></div>
+        <div class="stat"><b>9</b><span>主要功能分区</span></div>
+        <div class="stat"><b>11月7日</b><span>最近一次界面更新</span></div>
+        <div class="stat"><b>4</b><span>常见问题覆盖</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 320" role="presentation">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7e3ea"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#2b2440"/><stop offset="1" stop-color="#3a3155"/>
+          </linearGradient>
+        </defs>
+        <rect x="26" y="30" width="368" height="248" rx="16" fill="url(#g2)"/>
+        <rect x="26" y="30" width="368" height="34" rx="16" fill="#231f2e"/>
+        <circle cx="46" cy="47" r="4" fill="#c96b8c"/>
+        <circle cx="60" cy="47" r="4" fill="#c9a05c"/>
+        <circle cx="74" cy="47" r="4" fill="#3f7d63"/>
+        <rect x="38" y="76" width="344" height="190" rx="10" fill="url(#g1)"/>
+        <rect x="52" y="90" width="116" height="12" rx="6" fill="#c96b8c" opacity=".8"/>
+        <rect x="52" y="112" width="200" height="8" rx="4" fill="#d9cbd3"/>
+        <rect x="52" y="128" width="168" height="8" rx="4" fill="#e7e0e4"/>
+        <rect x="52" y="152" width="148" height="96" rx="8" fill="#ffffff" stroke="#e7e0e4"/>
+        <rect x="66" y="166" width="70" height="8" rx="4" fill="#2b2440" opacity=".7"/>
+        <rect x="66" y="184" width="118" height="6" rx="3" fill="#e7e0e4"/>
+        <rect x="66" y="198" width="96" height="6" rx="3" fill="#e7e0e4"/>
+        <rect x="66" y="220" width="54" height="14" rx="7" fill="#c96b8c"/>
+        <rect x="214" y="152" width="152" height="44" rx="8" fill="#ffffff" stroke="#e7e0e4"/>
+        <rect x="226" y="164" width="52" height="7" rx="3.5" fill="#2b2440" opacity=".65"/>
+        <rect x="226" y="178" width="100" height="6" rx="3" fill="#e7e0e4"/>
+        <rect x="214" y="204" width="152" height="44" rx="8" fill="#ffffff" stroke="#e7e0e4"/>
+        <rect x="226" y="216" width="64" height="7" rx="3.5" fill="#2b2440" opacity=".65"/>
+        <rect x="226" y="230" width="88" height="6" rx="3" fill="#e7e0e4"/>
+        <path d="M330 68 q10 8 0 16 q-10 -8 0 -16" fill="#c9a05c" opacity=".85"/>
+        <path d="M360 60 q7 6 0 12 q-7 -6 0 -12" fill="#c96b8c" opacity=".7"/>
+      </svg>
+      <span class="tag t1">账号 / 扫码 双通道</span>
+      <span class="tag t2">收藏与历史可同步</span>
+      <span class="tag t3">手机端单列浏览</span>
+    </div>
+  </div>
+</section>
+
+<!-- 频道横条 -->
+<div class="channels" aria-label="频道快捷入口">
+  <div class="wrap" id="channelBar">
+    <a href="/#channels">登录方式对照</a>
+    <a href="/#channels">浏览器兼容</a>
+    <a href="/#channels">账号安全设置</a>
+    <a href="/#channels">收藏夹同步</a>
+    <a href="/#channels">消息中心</a>
+    <a href="/#channels">移动端适配</a>
+    <a href="/#channels">页面加载排查</a>
+    <a href="/#channels">多设备切换</a>
+    <a href="/#channels">隐私与缓存</a>
+  </div>
+</div>
+
+<!-- 主体 -->
+<div class="wrap layout" id="main">
+  <main class="main-col">
+
+    <!-- 功能概览 -->
+    <section class="block article-section" id="overview">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">网页版功能概览</h2>
+          <p class="sec-sub">进入后能做什么，哪些动作在浏览器里完成，哪些仍需客户端</p>
+        </div>
+      </div>
+      <p>网页版把「看」和「管」拆得比较清楚：浏览、收藏、查看历史、收发站内消息都在浏览器里完成；批量导出、离线缓存、部分皮肤设置则留在客户端。11月7日的更新把登录页从单一账号密码改成双通道，扫码入口在右上角，二维码 120 秒刷新一次。</p>
+      <div class="grid grid-3" style="margin-top:16px;">
+        <div class="card">
+          <div class="card-body">
+            <span class="pill">浏览模块</span>
+            <h3>首页推荐与分类瀑布流</h3>
+            <p>打开即见推荐位，往下是分类瀑布流。每屏约 12 张卡片，卡片右下角标有更新日期，方便判断内容新旧。</p>
+            <div class="meta"><span>浏览器端</span><span>·</span><span>无需插件</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <span class="pill pill-ok">账号模块</span>
+            <h3>登录、绑定与设备管理</h3>
+            <p>账号密码与扫码两种方式并存；设备管理页可看到近 30 天登录过的浏览器与大致地区，支持逐个下线。</p>
+            <div class="meta"><span>11月7日改版</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <span class="pill pill-warn">同步模块</span>
+            <h3>收藏夹与历史记录同步</h3>
+            <p>收藏夹在网页端改动后约 5 秒推送到其他设备；历史记录按天聚合，最多保留 90 天，可在设置里手动清除。</p>
+            <div class="meta"><span>同步延迟约 5 秒</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 精选推荐 -->
+    <section class="block article-section" id="featured">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">精选内容推荐</h2>
+          <p class="sec-sub">本周浏览量与收藏数靠前的条目，按内容类型分组</p>
+        </div>
+        <a class="more" href="/#channels">按分类查看 →</a>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/lacecat-login/640/360" width="640" height="360" loading="lazy" alt="浏览器登录页双通道布局示意，左侧账号密码表单，右侧扫码区域">
+          <div class="card-body">
+            <span class="pill">登录教程</span>
+            <h3>扫码进入网页版的完整流程</h3>
+            <p>从点开右上角扫码图标到手机确认，一共 3 步。注意二维码 120 秒过期，页面会提示「已失效，请刷新」。</p>
+            <div class="meta"><span>11月7日</span><span>收藏 486</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/lacecat-bookmark/640/360" width="640" height="360" loading="lazy" alt="收藏夹跨设备同步界面，显示电脑与手机两端条目列表">
+          <div class="card-body">
+            <span class="pill">同步说明</span>
+            <h3>收藏夹在两台设备间不同步的排查顺序</h3>
+            <p>先看两端是否同一账号，再看网页端是否停留在旧标签页。多数情况刷新一次即可，少数需要退出重登。</p>
+            <div class="meta"><span>11月5日</span><span>收藏 352</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/lacecat-mobile/640/360" width="640" height="360" loading="lazy" alt="手机浏览器中网页版单列布局截图，顶栏收起为菜单按钮">
+          <div class="card-body">
+            <span class="pill">移动端</span>
+            <h3>手机浏览器打开后页面错位怎么调</h3>
+            <p>先确认浏览器缩放为 100%，再关闭「桌面版网站」开关。部分国产浏览器需在设置里手动允许脚本执行。</p>
+            <div class="meta"><span>11月3日</span><span>收藏 291</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <img class="card-img" src="https://picsum.photos/seed/lacecat-security/640/360" width="640" height="360" loading="lazy" alt="账号安全设置页，显示登录设备列表与下线按钮">
+          <div class="card-body">
+            <span class="pill pill-warn">安全</span>
+            <h3>设备管理里那条陌生登录记录</h3>
+            <p>11月6日有用户反馈看到非本人设备。官方说明为同一网络出口下的旧记录残留，处理方式是下线后改密码。</p>
+            <div class="meta"><span>11月6日</span><span>收藏 208</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 最新更新 -->
+    <section class="block article-section" id="updates">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">最新更新记录</h2>
+          <p class="sec-sub">11月上旬的界面与规则变动，按日期倒序</p>
+        </div>
+      </div>
+      <ul class="tight-list">
+        <li><span class="date">11月7日</span><a href="/#guide">登录页新增扫码通道</a><span class="note">账号密码仍保留</span></li>
+        <li><span class="date">11月6日</span><a href="/#reviews">设备管理页增加「下线后需重登」提示</a><span class="note">文案调整</span></li>
+        <li><span class="date">11月5日</span><a href="/#overview">收藏夹同步间隔从 12 秒缩短到约 5 秒</a><span class="note">性能优化</span></li>
+        <li><span class="date">11月3日</span><a href="/#channels">历史记录保留期由 60 天延长至 90 天</a><span class="note">规则变化</span></li>
+        <li><span class="date">10月30日</span><a href="/#faq">移动端导航改为抽屉式菜单</a><span class="note">布局调整</span></li>
+        <li><span class="date">10月27日</span><a href="/#deep">消息中心未读计数改为按会话统计</a><span class="note">统计口径</span></li>
+        <li><span class="date">10月22日</span><a href="/#guide">页面加载失败时增加重试按钮</a><span class="note">可用性</span></li>
+      </ul>
+    </section>
+
+    <!-- 分类入口 -->
+    <section class="block article-section" id="channels">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">分类入口</h2>
+          <p class="sec-sub">按使用场景划分，点进对应板块查看细节</p>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="/#guide">账号密码登录<span class="cnt">步骤</span></a>
+        <a class="cat-item" href="/#guide">手机扫码进入<span class="cnt">步骤</span></a>
+        <a class="cat-item" href="/#overview">浏览器兼容说明<span class="cnt">环境</span></a>
+        <a class="cat-item" href="/#overview">收藏夹同步规则<span class="cnt">同步</span></a>
+        <a class="cat-item" href="/#faq">页面加载慢排查<span class="cnt">排障</span></a>
+        <a class="cat-item" href="/#updates">历史记录保留期<span class="cnt">规则</span></a>
+        <a class="cat-item" href="/#reviews">多设备切换体验<span class="cnt">体验</span></a>
+        <a class="cat-item" href="/#faq">隐私与缓存清理<span class="cnt">安全</span></a>
+        <a class="cat-item" href="/#sources">开放信息核对<span class="cnt">可信度</span></a>
+      </div>
+    </section>
+
+    <!-- 深度解析 -->
+    <section class="block article-section deep" id="deep">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">深度解析：网页版是否足够替代客户端</h2>
+          <p class="sec-sub">从登录、同步、性能三个可核对的维度拆开看</p>
+        </div>
+      </div>
+
+      <h3>判断一：日常浏览，网页版已经够用，但前提是收藏量不超过 2000 条</h3>
+      <p>10 月 30 日至 11 月 7 日期间，网页版收藏夹页面在 2000 条以内时首次渲染约 1.2 秒，超过 4000 条后接近 3.5 秒，且滚动时明显掉帧。客户端同规模数据渲染约 0.8 秒。这个差距来自网页端一次性加载全部条目，而客户端做了分页缓存。</p>
+      <div class="judge">
+        <strong>可被反驳的具体判断：</strong>收藏超过 4000 条的用户，网页版不适合作为主力入口；2000 条以内，日常查看与增删完全够用。反驳这条需要给出网页端在大数据量下不卡顿的实测，而不是「感觉还行」。
+      </div>
+
+      <h3>判断二：扫码登录更快，但账号密码登录在弱网下更稳</h3>
+      <p>同一网络环境下，扫码从点击到进入主界面约 6 秒，账号密码约 11 秒（含输入）。问题在于扫码依赖手机端在线确认，11 月 6 日有用户反馈手机没网时扫码流程卡在「等待确认」，改回密码登录后 15 秒进入。两条通道保留下来不是多余的。</p>
+      <table class="compare">
+        <caption style="caption-side:top;text-align:left;font-size:13px;color:var(--muted);padding-bottom:6px;">11月7日实测对比（同一设备、同一网络）</caption>
+        <thead><tr><th>方式</th><th>耗时</th><th>依赖条件</th><th>失败后处理</th></tr></thead>
+        <tbody>
+          <tr><td>账号密码</td><td>约 11 秒</td><td>记得密码，输入法正常</td><td>可点「忘记密码」走邮箱重置</td></tr>
+          <tr><td>手机扫码</td><td>约 6 秒</td><td>手机在线且已登录</td><td>二维码 120 秒过期，刷新重扫</td></tr>
+        </tbody>
+      </table>
+
+      <h3>判断三：同步延迟的问题被夸大了，真正的痛点是一致性</h3>
+      <p>11月5日把同步间隔从 12 秒缩到 5 秒后，两台设备之间收藏增删的平均可见延迟约 5.4 秒。但 11 月 3 日有用户在同一账号两台电脑上同时删除同一条收藏，网页端出现「已删除」与「仍存在」并存约 8 秒，随后以较晚操作时间为准收敛。延迟不是主要矛盾，冲突合并规则才是。</p>
+
+      <h3>公开信息与说法对照</h3>
+      <p>官方公告只说「优化同步体验」，未公布具体间隔；5 秒这个数字来自 11 月 5 日页面源码中轮询参数 <code>sync_interval=5</code>，属于可复核的技术痕迹。设备管理页的「同一网络出口记录残留」是客服在 11 月 6 日回复中的说法，属于回应，不是官方文档结论。</p>
+      <ul>
+        <li><b>事实：</b>11 月 7 日登录页出现二维码区域，位置在表单右侧。</li>
+        <li><b>回应：</b>客服称陌生设备记录多为旧记录残留，建议下线并改密码。</li>
+        <li><b>转述：</b>有用户说「扫码比输密码快一半」，实测是 6 秒对 11 秒，接近但不到一半。</li>
+        <li><b>推测：</b>同步冲突处理可能会在 11 月下旬改成分条目合并，目前无公告。</li>
+      </ul>
+    </section>
+
+    <!-- 体验指南 -->
+    <section class="block article-section" id="guide">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">体验指南：从打开地址到稳定使用</h2>
+          <p class="sec-sub">按顺序做，五步之内能完成</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><b>确认浏览器版本</b>Chrome 100 以上、Edge 100 以上、Safari 15.4 以上均可正常使用；低于这些版本时扫码区域可能显示不全。</li>
+        <li><b>选登录方式</b>记得密码就走账号密码；手机在手边就走扫码。扫码入口在登录表单右上角，图标是一个方框加四个角标。</li>
+        <li><b>进入后先看顶栏</b>顶栏从左到右依次是品牌标识、搜索框、消息、头像。搜索框支持站内条目名与账号昵称。</li>
+        <li><b>检查同步状态</b>在收藏夹页面右上角能看到最近同步时间。显示「刚刚」表示已连通，显示具体时间说明存在延迟。</li>
+        <li><b>按需清理缓存</b>换设备或换网络后页面异常，先在浏览器设置里清除该站点缓存，再刷新，不要直接清空全部浏览数据。</li>
+      </ol>
+      <div class="panel-pair" style="margin-top:18px;">
+        <div class="panel ok">
+          <h3>网页端适合做</h3>
+          <ul>
+            <li>跨设备查看收藏与历史</li>
+            <li>临时借用他人电脑时快速登录</li>
+            <li>管理登录设备与下线陌生会话</li>
+            <li>在公共电脑上使用后立即退出</li>
+          </ul>
+        </div>
+        <div class="panel warn">
+          <h3>网页端不建议做</h3>
+          <ul>
+            <li>批量导出超过 500 条收藏</li>
+            <li>长时间后台挂起不操作</li>
+            <li>在无痕窗口里保持登录状态</li>
+            <li>用公共 Wi-Fi 且不启用扫码</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="block article-section faq" id="faq">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">常见问题</h2>
+          <p class="sec-sub">围绕进入、同步、安全三类的实际提问</p>
+        </div>
+      </div>
+      <details>
+        <summary>网页版打开后一直转圈，先查哪一项？</summary>
+        <div class="ans">先看地址是否完整、是否少了末尾斜杠无关紧要，关键是浏览器是否拦截了第三方脚本。其次检查系统时间是否准确，偏差超过 5 分钟会导致扫码确认失败。两者都正常时，清除该站点缓存再刷新。</div>
+      </details>
+      <details>
+        <summary>扫码后手机提示成功，网页端没反应怎么办？</summary>
+        <div class="ans">二维码有效期 120 秒，手机确认后网页端一般 2 秒内跳转。没跳转时先点页面上的「刷新二维码」，不要关掉整个标签页。11 月 7 日之后的版本在扫码区下方有状态文字，显示「已确认，正在进入」说明网络在等响应。</div>
+      </details>
+      <details>
+        <summary>收藏夹在电脑上加了，手机浏览器看不到？</summary>
+        <div class="ans">先确认两端是同一账号，再看网页端收藏页的最近同步时间。同步间隔约 5 秒，但标签页切到后台时轮询会暂停，切回来才继续。手机端刷新一次即可，不必重登。</div>
+      </details>
+      <details>
+        <summary>设备管理里出现的陌生地点记录要紧吗？</summary>
+        <div class="ans">先看登录时间是否与本人操作吻合。11 月 6 日客服说明同一网络出口的旧会话可能显示为邻近城市。处理方式是把该设备下线，再改一次密码；改完仍出现新记录，再联系支持渠道。</div>
+      </details>
+      <details>
+        <summary>公共电脑上用完后怎么退得干净？</summary>
+        <div class="ans">点头像菜单里的退出，再关闭所有相关标签页，最后清除该站点缓存。仅关闭标签页不算退出，浏览器保留 Cookie 时下次打开仍是登录态。</div>
+      </details>
+      <details>
+        <summary>历史记录为什么只到 90 天前就没有了？</summary>
+        <div class="ans">11 月 3 日起保留期由 60 天调整为 90 天，超出部分自动清理。清理按天进行，所以第 91 天的那批记录会在当天某个时段统一消失，不是逐条删除。</div>
+      </details>
+    </section>
+
+    <!-- 用户评论 -->
+    <section class="block article-section" id="reviews">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">用户评论</h2>
+          <p class="sec-sub">来自 11 月上旬的反馈，含中性评价与吐槽</p>
+        </div>
+      </div>
+      <div class="comments">
+        <div class="comment">
+          <div class="who"><span class="av">林</span><b>林间有雾</b><span class="t">11月7日</span></div>
+          <p>扫码通道出来后确实省事，点一下再扫一下，6 秒左右就进去了，比我手打密码快。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av b">陈</span><b>陈默_0412</b><span class="t">11月6日</span></div>
+          <p>设备管理里那条陌生记录吓了我一跳，地点是隔壁城市。客服说是旧会话残留，下线改密码后暂时没再出现。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av c">阿</span><b>阿野不提</b><span class="t">11月5日</span></div>
+          <p>收藏 4000 多条，网页版滚动确实卡，最后还是回客户端整理。2000 条以内应该没问题。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av d">周</span><b>周末存档</b><span class="t">11月5日</span></div>
+          <p>历史记录保留到 90 天这条改得好，之前 60 天翻旧内容总断档。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av e">不</span><b>不太会用电脑</b><span class="t">11月4日</span></div>
+          <p>手机浏览器打开后字很小，按指南关掉桌面版网站才正常，建议在登录页直接给个提示。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av b">K</span><b>Kiko_1029</b><span class="t">11月3日</span></div>
+          <p>两台电脑同时删同一条收藏，真的会出现一边显示已删一边还在，过几秒才统一。算不上大问题，但看着别扭。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av">何</span><b>何处安放</b><span class="t">11月2日</span></div>
+          <p>整体够用，就是消息中心的未读计数改了统计口径之后，我得点开每个会话才知道哪条没看。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="av c">石</span><b>石头记2026</b><span class="t">11月1日</span></div>
+          <p>没别的，退出按钮藏得有点深，在头像菜单最后一栏，第一次找了一分多钟。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 相关资讯 -->
+    <section class="block article-section" id="news">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">相关资讯</h2>
+          <p class="sec-sub">同一时间段的外部讨论与技术动向</p>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-body">
+            <span class="pill pill-gray">浏览器生态</span>
+            <h3>Chrome 对第三方 Cookie 的收紧影响登录态</h3>
+            <p>11 月起的版本对跨站 Cookie 限制更严，依赖第三方域的登录状态需要改用第一方存储，网页端的「保持登录 7 天」选项受影响。</p>
+            <div class="meta"><span>10月31日</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <span class="pill pill-gray">移动端</span>
+            <h3>国产浏览器内核升级后的扫码表现</h3>
+            <p>部分浏览器升级到新版内核后，摄像头权限弹窗位置变化，扫码按钮需长按唤起。11 月 2 日有相关讨论帖。</p>
+            <div class="meta"><span>11月2日</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="quote" style="margin-top:16px;">
+        <b>界面观察：</b>把登录入口拆成两条通道后，页面信息密度上升，但表单区域反而变窄。11 月 7 日的截图中，账号密码输入框宽度从 320px 缩到 268px，长密码在移动端更容易触发横向滚动。
+      </div>
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="block article-section" id="related">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">相关推荐</h2>
+          <p class="sec-sub">与进入、同步、安全相关的延伸条目</p>
+        </div>
+      </div>
+      <div class="tags">
+        <a href="/#guide">网页版扫码登录步骤</a>
+        <a href="/#faq">二维码过期刷新方法</a>
+        <a href="/#overview">收藏夹跨设备同步规则</a>
+        <a href="/#deep">浏览器与客户端渲染对比</a>
+        <a href="/#faq">登录设备下线操作</a>
+        <a href="/#guide">公共电脑退出与清缓存</a>
+        <a href="/#overview">历史记录 90 天保留期</a>
+        <a href="/#reviews">移动端页面缩放设置</a>
+        <a href="/#news">第三方 Cookie 限制影响</a>
+        <a href="/#sources">后台轮询参数说明</a>
+      </div>
+    </section>
+
+    <!-- 补充板块：可信度分层 -->
+    <section class="block article-section" id="sources">
+      <div class="block-head">
+        <div>
+          <h2 class="sec-title">信息核对与可信度分层</h2>
+          <p class="sec-sub">把说法按可验证程度排队，便于自行复核</p>
+        </div>
+      </div>
+      <ol class="timeline">
+        <li>
+          <b>可直接核对：页面行为</b>
+          <span class="when">11月7日</span>
+          登录页二维码区域、120 秒刷新提示、扫码状态文字，均可在浏览器中直接看到，无需依赖转述。
+        </li>
+        <li>
+          <b>可核对但有门槛：源码参数</b>
+          <span class="when">11月5日</span>
+          同步间隔 5 秒来自页面脚本中的轮询参数，懂技术手段的用户可自行查看；普通用户看收藏页右上角的同步时间也能间接判断。
+        </li>
+        <li>
+          <b>官方口径但未公布细节：同步优化</b>
+          <span class="when">11月5日</span>
+          公告只说「优化同步体验」，没有给具体数字。5 秒是推断值，不是官方承诺值，不宜当规则引用。
+        </li>
+        <li>
+          <b>客服回应：陌生设备记录</b>
+          <span class="when">11月6日</span>
+          属一对一回复，可作参考，不能等同于规则文档。遇到同类情况仍以实际下线结果为准。
+        </li>
+        <li>
+          <b>社区转述与推测：冲突合并改版</b>
+          <span class="when">11月上旬</span>
+          目前没有任何公告支持，仅作观察，不应据此规划操作。
+        </li>
+      </ol>
+      <p style="margin-top:14px;">以上分层只在信息性质上区分，不代表越靠前越重要。对多数用户来说，页面行为与可核对参数已经足够支撑「用网页版还是客户端」这个决定。</p>
+    </section>
+
+  </main>
+
+  <!-- 侧栏 -->
+  <aside class="side-col" aria-label="辅助导航与查找">
+    <div class="side-card">
+      <h3>站内查找</h3>
+      <div class="search-box">
+        <input type="search" id="siteSearch" placeholder="输入条目名，如 扫码" aria-label="站内条目搜索">
+        <button class="btn btn-primary" id="searchBtn" type="button" style="padding:8px 14px;font-size:13px;">查找</button>
+      </div>
+      <div class="search-results" id="searchResults" aria-live="polite">
+        <p class="empty">点击查找或按回车，结果从这里出现。</p>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h3>本页栏目</h3>
+      <nav class="side-nav" id="sideNav" aria-label="侧栏栏目导航">
+        <a href="/#overview">网页版功能概览</a>
+        <a href="/#featured">精选内容推荐</a>
+        <a href="/#updates">最新更新记录</a>
+        <a href="/#channels">分类入口</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#reviews">用户评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#related">相关推荐</a>
+        <a href="/#sources">信息核对分层</a>
+      </nav>
+    </div>
+
+    <div class="side-card">
+      <h3>本周操作排行</h3>
+      <ul class="side-list">
+        <li><span class="n">1</span><a href="/#guide">扫码进入登录页</a></li>
+        <li><span class="n">2</span><a href="/#faq">刷新过期二维码</a></li>
+        <li><span class="n">3</span><a href="/#overview">查看收藏同步时间</a></li>
+        <li><span class="n">4</span><a href="/#faq">下线陌生设备</a></li>
+        <li><span class="n">5</span><a href="/#guide">公共电脑退出登录</a></li>
+      </ul>
+    </div>
+
+    <div class="side-card">
+      <h3>关键数值速览</h3>
+      <ul class="side-list">
+        <li><span class="n">·</span>二维码有效期 120 秒</li>
+        <li><span class="n">·</span>同步间隔约 5 秒</li>
+        <li><span class="n">·</span>历史保留 90 天</li>
+        <li><span class="n">·</span>设备记录近 30 天</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" role="img" aria-label="蕾丝猫网页版入口 页尾标志">
+            <rect width="64" height="64" rx="14" fill="#3a3155"/>
+            <path d="M15 25 L23 13 L30 25" stroke="#f0b7c8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M49 25 L41 13 L34 25" stroke="#f0b7c8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 27 Q32 22 50 27 Q50 44 32 50 Q14 44 14 27 Z" fill="none" stroke="#f0b7c8" stroke-width="2.6"/>
+            <circle cx="25" cy="35" r="2.6" fill="#f0b7c8"/>
+            <circle cx="39" cy="35" r="2.6" fill="#f0b7c8"/>
+            <path d="M27 44 Q32 49 37 44" stroke="#c9a05c" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </svg>
+          <b>蕾丝猫网页版入口</b>
+        </div>
+        <p class="foot-desc">浏览器即开即用，登录方式、同步状态与设备记录都摊开写清楚，方便对照自己的使用场景做取舍。</p>
+        <p class="foot-note">本页条目、评论与更新记录均为示例内容，用于说明页面结构；日期以 2026 年 11 月 8 日为参照。</p>
+      </div>
+      <div>
+        <h4>进入与登录</h4>
+        <a href="/#guide">账号密码登录步骤</a>
+        <a href="/#guide">手机扫码进入流程</a>
+        <a href="/#faq">二维码过期处理</a>
+        <a href="/#faq">公共电脑退出</a>
+      </div>
+      <div>
+        <h4>数据与同步</h4>
+        <a href="/#overview">收藏夹同步规则</a>
+        <a href="/#overview">历史记录保留期</a>
+        <a href="/#deep">同步冲突合并</a>
+        <a href="/#sources">参数核对方法</a>
+      </div>
+      <div>
+        <h4>安全与排障</h4>
+        <a href="/#faq">登录设备下线</a>
+        <a href="/#faq">页面加载排查</a>
+        <a href="/#reviews">用户实际反馈</a>
+        <a href="/#news">浏览器策略变化</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 蕾丝猫网页版入口 · 示例站点内容，不构成任何服务承诺</span>
+      <span>正文核对更新：2026-11-08（对应 11 月 7 日登录页改版条目）</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到页面顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端菜单 */
+  var menuBtn = document.getElementById('menuBtn');
+  var topNav = document.getElementById('topNav');
+  if(menuBtn && topNav){
+    menuBtn.addEventListener('click', function(){
+      var open = topNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    topNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.matchMedia('(max-width:1020px)').matches){
+        topNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  function onScroll(){
+    if(!toTop) return;
+    if(window.scrollY > 420){ toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  if(toTop){
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+
+  /* 侧栏滚动高亮 */
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = sideLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  });
+  function highlight(){
+    var pos = window.scrollY + 170;
+    var idx = -1;
+    sections.forEach(function(sec, i){
+      if(sec && sec.offsetTop <= pos){ idx = i; }
+    });
+    sideLinks.forEach(function(a, i){
+      a.classList.toggle('active', i === idx);
+    });
+  }
+  window.addEventListener('scroll', highlight, {passive:true});
+  highlight();
+
+  /* 站内本地搜索 */
+  var index = [
+    {t:'网页版功能概览', d:'overview', k:'功能 分区 浏览 账号 同步'},
+    {t:'扫码进入网页版的完整流程', d:'guide', k:'扫码 登录 二维码 120秒'},
+    {t:'账号密码登录步骤', d:'guide', k:'密码 登录 忘记密码'},
+    {t:'二维码过期刷新方法', d:'faq', k:'二维码 过期 刷新 扫码'},
+    {t:'收藏夹跨设备同步规则', d:'overview', k:'收藏夹 同步 5秒 设备'},
+    {t:'同步冲突合并说明', d:'deep', k:'冲突 删除 合并 一致性'},
+    {t:'浏览器与客户端渲染对比', d:'deep', k:'渲染 客户端 性能 2000条 4000条'},
+    {t:'登录设备下线操作', d:'faq', k:'设备管理 下线 陌生 密码'},
+    {t:'公共电脑退出与清缓存', d:'faq', k:'退出 缓存 公共电脑 Cookie'},
+    {t:'历史记录 90 天保留期', d:'updates', k:'历史 90天 保留 规则'},
+    {t:'移动端页面缩放设置', d:'reviews', k:'手机 缩放 桌面版网站'},
+    {t:'第三方 Cookie 限制影响', d:'news', k:'Cookie 浏览器 登录态'},
+    {t:'信息核对与可信度分层', d:'sources', k:'核对 可信度 参数 回应 推测'},
+    {t:'用户评论与反馈', d:'reviews', k:'评论 体验 吐槽'},
+    {t:'本周操作排行', d:'related', k:'排行 操作 扫码 下线'},
+    {t:'浏览器兼容说明', d:'overview', k:'Chrome Edge Safari 版本'},
+    {t:'消息中心未读统计', d:'updates', k:'消息 未读 会话'}
+  ];
+  var input = document.getElementById('siteSearch');
+  var btn = document.getElementById('searchBtn');
+  var out = document.getElementById('searchResults');
+
+  function runSearch(){
+    if(!input || !out) return;
+    var q = input.value.trim().toLowerCase();
+    out.innerHTML = '';
+    if(!q){
+      out.innerHTML = '<p class="empty">输入关键词后再查找。</p>';
+      return;
+    }
+    var hits = index.filter(function(item){
+      return (item.t + ' ' + item.k).toLowerCase().indexOf(q) !== -1;
+    });
+    if(hits.length === 0){
+      out.innerHTML = '<p class="empty">没有找到与「' + q.replace(/[<>&]/g,'') + '」相关的条目，换个短词试试，比如「扫码」「同步」「缓存」。</p>';
+      return;
+    }
+    hits.slice(0,8).forEach(function(item){
+      var a = document.createElement('a');
+      a.href = '/#' + item.d;
+      a.textContent = item.t;
+      out.appendChild(a);
+    });
+  }
+  if(btn){ btn.addEventListener('click', runSearch); }
+  if(input){
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+    input.addEventListener('input', function(){
+      if(input.value.trim().length >= 2){ runSearch(); }
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "蕾丝猫网页版入口",
+  "description": "整理网页版进入方式、登录通道、同步规则与常见问题解答的示例页面。",
+  "inLanguage": "zh-CN"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "网页版打开后一直转圈，先查哪一项？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先看浏览器是否拦截了第三方脚本，其次检查系统时间偏差是否超过 5 分钟，两者都正常时清除该站点缓存再刷新。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "扫码后手机提示成功，网页端没反应怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "二维码有效期 120 秒，确认后一般 2 秒内跳转。没跳转时点页面上的刷新二维码，不要关整个标签页。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "收藏夹在电脑上加了，手机浏览器看不到？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "确认两端为同一账号，查看网页端收藏页的最近同步时间。同步间隔约 5 秒，标签页在后台时轮询会暂停，切回后刷新一次即可。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "设备管理里出现的陌生地点记录要紧吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "先核对登录时间是否与本人操作吻合。同一网络出口的旧会话可能显示为邻近城市，处理方式是把该设备下线并修改密码。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "公共电脑上用完后怎么退得干净？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "在头像菜单里退出，关闭所有相关标签页，再清除该站点缓存；仅关闭标签页时保留 Cookie，下次打开仍可能是登录态。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "历史记录为什么只到 90 天前就没有了？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "11 月 3 日起保留期由 60 天调整为 90 天，超出部分按天统一清理，因此第 91 天的记录会在当天某个时段一起消失。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+  </html>
